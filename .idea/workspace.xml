@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="V1">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="UI Fresh v0.1">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/amram.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/client/DashboardMerger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/client/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/client/Register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/client/ResetPassword.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/editor/Editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sponsors/AddressBook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/BackToTop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/GetStarted.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Launcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/Menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/NavBar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/NavDrawer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/ScrollToTop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/images/bg_addr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/temp/NavDrawer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/Comfortaa/Comfortaa-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/Comfortaa/Comfortaa-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/Comfortaa/Comfortaa-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/Comfortaa/Comfortaa-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/Comfortaa/Comfortaa-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/Comfortaa/Comfortaa-Variable.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-BoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-ExtraBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-LightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-SemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fonts/OpenSans/OpenSans-SemiBoldItalic.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,16 +76,32 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/fonts/Comfortaa" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts\Comfortaa" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\temp" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts\OpenSans" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\features\components\client" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -90,7 +130,8 @@
       <updated>1585076453467</updated>
       <workItem from="1585076457267" duration="3131000" />
       <workItem from="1585080743735" duration="2734000" />
-      <workItem from="1585120613216" duration="266000" />
+      <workItem from="1585120613216" duration="12655000" />
+      <workItem from="1585141389389" duration="59946000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -99,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585077796064</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="V1">
+      <created>1585120890142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585120890142</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,56 +158,68 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1" />
+    <MESSAGE value="UI Fresh v0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI Fresh v0.1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585079657096">
+    <state x="0" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585204454014">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="0" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585079657096" />
-    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1585120641168">
+    <state x="0" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585204454014" />
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585203611852">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585120641168" />
-    <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1585119336083">
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585203611852" />
+    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1585299493046">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1219" y="269" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1585119336083" />
+    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585299493046" />
+    <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1585141750609">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1219" y="269" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1585141750609" />
     <state x="348" y="422" key="Github.ShareDialog" timestamp="1585077567567">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom" timestamp="1585120664568">
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom" timestamp="1585299493116">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585120664568" />
-    <state width="1899" height="271" key="GridCell.Tab.0.center" timestamp="1585120664568">
+    <state width="1899" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585299493116" />
+    <state width="1899" height="271" key="GridCell.Tab.0.center" timestamp="1585299493116">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585120664568" />
-    <state width="1899" height="271" key="GridCell.Tab.0.left" timestamp="1585120664568">
+    <state width="1899" height="271" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585299493116" />
+    <state width="1899" height="271" key="GridCell.Tab.0.left" timestamp="1585299493115">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585120664568" />
-    <state width="1899" height="271" key="GridCell.Tab.0.right" timestamp="1585120664568">
+    <state width="1899" height="271" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585299493115" />
+    <state width="1899" height="271" key="GridCell.Tab.0.right" timestamp="1585299493116">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="271" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585120664568" />
-    <state x="0" y="170" key="SettingsEditor" timestamp="1585080715277">
+    <state width="1899" height="271" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585299493116" />
+    <state x="446" y="232" key="SettingsEditor" timestamp="1585229768928">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="0" y="170" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585080715277" />
-    <state x="72" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585077800000">
+    <state x="446" y="232" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585229768928" />
+    <state x="72" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585299458105">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="72" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585077800000" />
+    <state x="72" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585299458105" />
+    <state x="136" y="247" key="run.anything.popup" timestamp="1585273683561">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="136" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585273683561" />
   </component>
 </project>
