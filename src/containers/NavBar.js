@@ -41,9 +41,6 @@ const styles = theme => ({
         paddingBottom: 20,
         minWidth: "auto"
     },
-    accountsButton: {
-        marginLeft: theme.spacing(2),
-    },
     navDrawer: {
         display: "none",
         [theme.breakpoints.down("sm")]: {
@@ -60,7 +57,7 @@ const styles = theme => ({
         },
         marginRight: theme.spacing(2),
         marginLeft: theme.spacing(2),
-        width: '100%',
+        width: 'auto',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
             width: 'auto',
@@ -79,7 +76,7 @@ const styles = theme => ({
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
-            width: '20ch',
+            width: '15ch',
         }
     }
 });
@@ -188,6 +185,7 @@ class NavBar extends Component {
                                 <Tabs
                                     value={this.currentAuth()}
                                     onChange={this.handleChange}
+                                    variant={"scrollable"}
                                 >
                                     {authMenu.map((item, index) => (
                                         <Tab
@@ -204,6 +202,7 @@ class NavBar extends Component {
                                 </Tabs>
                             ) : (
                                 <Tabs
+                                    variant={"scrollable"}
                                     value={this.currentGuest()}
                                     onChange={this.handleChange}>
                                     {guestMenu.map((item, index) => (
@@ -234,7 +233,7 @@ class NavBar extends Component {
                         </Paper>
                         <div className={classes.root}/>
                         {this.state.auth && (
-                            <div className={classes.accountsButton}>
+                            <div>
                                 <IconButton
                                     edge={"end"}
                                     aria-label="account of current user"
