@@ -9,7 +9,7 @@ import Editor from "../components/editor/Editor";
 import Register from "../components/client/Register";
 import Login from "../components/client/Login";
 import DashboardMerger from "../components/client/DashboardMerger";
-import AddressBook from "../components/sponsors/AddressBook";
+import AddressBook from "./AddressBook";
 import ResetPassword from "../components/client/ResetPassword";
 import ProfileSettings from "../components/client/ProfileSettings";
 

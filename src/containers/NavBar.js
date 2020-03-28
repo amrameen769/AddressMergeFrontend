@@ -67,7 +67,7 @@ const styles = theme => ({
         }
     },
     inputRoot: {
-        color: 'inherit',
+        color: '#fff',
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
