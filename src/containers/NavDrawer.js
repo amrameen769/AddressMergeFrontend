@@ -9,6 +9,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import {authMenu, guestMenu} from "./Menu";
 import {Link} from "react-router-dom";
+import {fade, InputBase, Paper} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 
 const drawerWidth = 250;
 
@@ -23,13 +25,47 @@ const useStyles = makeStyles(theme => ({
     },
     drawerPaper: {
         width: drawerWidth,
+    },
+    search: {
+        display: 'flex',
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
+        },
+        marginRight: theme.spacing(2),
+        marginLeft: theme.spacing(2),
+        width: '100%',
+        [theme.breakpoints.up('xs')]: {
+            display: 'none'
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginLeft: theme.spacing(3),
+            width: 'auto',
+            display: 'block'
+        }
+    },
+    inputRoot: {
+        color: 'inherit',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(1)}px)`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+            width: '20ch',
+        }
     }
 }));
 
 export default function NavDrawer(props) {
     const classes = useStyles();
     const [state, setState] = React.useState({
-        left: false
+        left: false,
+        search: ""
     });
 
     const toggleDrawer = (anchor, open) => event => {
@@ -100,6 +136,18 @@ export default function NavDrawer(props) {
                 open={state["left"]}
                 onClose={toggleDrawer("left", false)}
             >
+                <Paper className={classes.search} component={'form'}>
+                    <InputBase
+                        classes={{
+                            root: classes.inputRoot,
+                            input: classes.inputInput
+                        }}
+                        placeholder={"Search"}
+                    />
+                    <IconButton>
+                        <SearchIcon/>
+                    </IconButton>
+                </Paper>
                 {list("left")}
             </Drawer>
         </React.Fragment>
