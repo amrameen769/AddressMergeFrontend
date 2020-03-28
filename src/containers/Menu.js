@@ -27,11 +27,11 @@ export const guestMenu = [
         pathname: "/get-started"
     },
     {
-        label: "Register",
+        label: "Sign Up",
         pathname: "/register"
     },
     {
-        label: "Login",
+        label: "Sign In",
         pathname: "/login"
     }
 ];

@@ -49,12 +49,18 @@ const styles = theme => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
-    grid : {
+    grid: {
         margin: theme.spacing(2)
     }
 });
 
 class Login extends Component {
+    state = {
+        email: "",
+        password: "",
+        remember: false
+    };
+
     copyright() {
         return (
             <Typography variant="body2" color="textSecondary" align="center">
@@ -68,22 +74,39 @@ class Login extends Component {
         );
     }
 
+    handleOnChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    };
+
+    checkOnChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.checked
+        });
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state);
+    }
+
     render() {
         const {classes} = this.props;
         return (
             <div>
-                <Grid container component="main" className={classes.root}>
-                    <CssBaseline />
-                    <Grid item xs={false} sm={4} md={7} className={classes.image} />
+                <Grid container className={classes.root}>
+                    <CssBaseline/>
+                    <Grid item xs={false} sm={4} md={7} className={classes.image}/>
                     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                         <div className={classes.paper}>
                             <Avatar className={classes.avatar}>
-                                <LockOutlinedIcon />
+                                <LockOutlinedIcon/>
                             </Avatar>
                             <Typography component="h1" variant="h5">
                                 Sign in
                             </Typography>
-                            <form className={classes.form} noValidate>
+                            <form onSubmit={this.handleSubmit} className={classes.form}>
                                 <TextField
                                     variant="outlined"
                                     margin="normal"
@@ -92,8 +115,10 @@ class Login extends Component {
                                     id="email"
                                     label="Email Address"
                                     name="email"
+                                    type="email"
                                     autoComplete="email"
                                     autoFocus
+                                    onChange={this.handleOnChange}
                                 />
                                 <TextField
                                     variant="outlined"
@@ -105,9 +130,16 @@ class Login extends Component {
                                     type="password"
                                     id="password"
                                     autoComplete="current-password"
+                                    onChange={this.handleOnChange}
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary" />}
+                                    control={
+                                        <Checkbox
+                                            onChange={this.checkOnChange}
+                                            color="primary"
+                                            name={"remember"}
+                                        />
+                                    }
                                     label="Remember me"
                                 />
                                 <Button

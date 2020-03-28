@@ -4,10 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import {authMenu, guestMenu} from "./Menu";
@@ -29,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function NavDrawer() {
+export default function NavDrawer(props) {
     const classes = useStyles();
     const [state, setState] = React.useState({
         left: false
@@ -43,6 +40,8 @@ export default function NavDrawer() {
         setState({...state, [anchor]: open});
     };
 
+    const {auth} = props;
+
     const list = anchor => (
         <div
             className={classes.toolbar}
@@ -51,35 +50,38 @@ export default function NavDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List className={classes.list}>
-                {authMenu.map((item, index) => (
-                    <ListItem
-                        button
-                        component={Link}
-                        to={{
-                            pathname: item.pathname,
-                            search: window.location.search
-                        }}
-                        key={index}>
-                        <ListItemText primary={item.label}/>
-                    </ListItem>
-                ))}
+                {auth ? (
+                    authMenu.map((item, index) => (
+                        <ListItem
+                            button
+                            component={Link}
+                            to={{
+                                pathname: item.pathname,
+                                search: window.location.search
+                            }}
+                            key={index}>
+                            <ListItemText primary={item.label}/>
+                        </ListItem>
+                    ))
+                ) : (
+                    guestMenu.map((item, index) => (
+                        <ListItem
+                            button
+                            key={index}
+                            component={Link}
+                            to={{
+                                pathname: item.pathname,
+                                search: window.location.search
+                            }}
+                        >
+                            <ListItemText primary={item.label}/>
+                        </ListItem>
+                    ))
+                )}
             </List>
             <Divider/>
             <List>
-                {guestMenu.map((item, index) => (
-                    <ListItem
-                        button
-                        key={index}
-                        component={Link}
-                        to={{
-                            pathname: item.pathname,
-                            search: window.location.search
-                        }}
-                    >
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                        <ListItemText primary={item.label}/>
-                    </ListItem>
-                ))}
+
             </List>
         </div>
     );

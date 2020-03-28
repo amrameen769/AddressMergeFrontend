@@ -11,6 +11,7 @@ import Login from "../components/client/Login";
 import DashboardMerger from "../components/client/DashboardMerger";
 import AddressBook from "../components/sponsors/AddressBook";
 import ResetPassword from "../components/client/ResetPassword";
+import ProfileSettings from "../components/client/ProfileSettings";
 
 export default props => (
     <HashRouter>
@@ -25,6 +26,7 @@ export default props => (
                 <Route exact path={"/dashboard"} component={DashboardMerger}/>
                 <Route exact path={"/address-book"} component={AddressBook}/>
                 <Route exact path={"/reset-password"} component={ResetPassword}/>
+                <Route exact path={"/profile-settings"} component={ProfileSettings}/>
             </Switch>
             <BackToTop {...props}/>
         </ScrollToTop>

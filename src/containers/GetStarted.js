@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from "@material-ui/core/Container";
+import bg_home from './images/bg_home.jpg';
 
 const GetStarted = () => {
     const para = (
@@ -47,12 +48,9 @@ const GetStarted = () => {
             interdum consectetur.</p>
     );
     return (
-        <div>
+        <div style={{backgroundImage: `url(${bg_home})`}}>
             <Container>
                 <h1>Get Started</h1>
-                {para}
-                {para}
-                {para}
                 {para}
                 {para}
                 {para}
