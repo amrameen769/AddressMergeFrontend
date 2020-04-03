@@ -1,9 +1,12 @@
 import React from 'react';
+import AddSponsors from "./AddSponsors";
+import ListSponsors from "./ListSponsors";
 
 const ManageSponsors = () => {
     return (
         <div>
-            <h1>Manage Sponsors</h1>
+            <AddSponsors/>
+            <ListSponsors/>
         </div>
     );
 };

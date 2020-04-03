@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/candidates/ManageCandidates.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sponsors/ManageFunds.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sponsors/ManageSponsors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/AddressBook.js" afterDir="false" />
+    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="UI Fresh v0.1">
+      <change afterPath="$PROJECT_DIR$/src/components/candidates/AddCandidates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/candidates/EditCandidates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/candidates/ListCandidates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/misc/ActionAlert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/misc/TableUI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sponsors/AddSponsors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sponsors/EditSponsors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sponsors/ListSponsors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/AddCategory.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sponsors/AddressBook.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/editor/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/editor/Editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sponsors/ManageSponsors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sponsors/ManageSponsors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/AddressBook.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/AddressBook.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/GetStarted.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Menu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/NavDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/NavDrawer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +34,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -44,17 +58,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/containers/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/misc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="com.codota.intellij.common.configuration.CodotaConfigurable" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -65,10 +81,11 @@
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\features\components\client" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\editor" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\images" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts\Comfortaa" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -101,7 +118,16 @@
       <workItem from="1585120613216" duration="12655000" />
       <workItem from="1585141389389" duration="70975000" />
       <workItem from="1585395226510" duration="12896000" />
-      <workItem from="1585416826186" duration="562000" />
+      <workItem from="1585416826186" duration="3717000" />
+      <workItem from="1585484177960" duration="8208000" />
+      <workItem from="1585493273945" duration="1752000" />
+      <workItem from="1585575983496" duration="2644000" />
+      <workItem from="1585638612783" duration="957000" />
+      <workItem from="1585662402462" duration="5861000" />
+      <workItem from="1585682508709" duration="1845000" />
+      <workItem from="1585753705092" duration="128000" />
+      <workItem from="1585753922618" duration="3223000" />
+      <workItem from="1585810392197" duration="19954000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -145,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585405424829</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="UI Fresh v0.1">
+      <created>1585417421230</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585417421230</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,10 +212,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585203611852" />
-    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1585405424066">
+    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1585900596725">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585405424066" />
+    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1585900596725" />
     <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1585141750609">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -191,33 +224,37 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="1899" height="270" key="GridCell.Tab.0.bottom" timestamp="1585417302321">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom" timestamp="1585900596848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585417302321" />
-    <state width="1899" height="270" key="GridCell.Tab.0.center" timestamp="1585417302320">
+    <state width="1877" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585900596848" />
+    <state width="1877" height="269" key="GridCell.Tab.0.center" timestamp="1585900596848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="270" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585417302320" />
-    <state width="1899" height="270" key="GridCell.Tab.0.left" timestamp="1585417302320">
+    <state width="1877" height="269" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585900596848" />
+    <state width="1877" height="269" key="GridCell.Tab.0.left" timestamp="1585900596848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="270" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585417302320" />
-    <state width="1899" height="270" key="GridCell.Tab.0.right" timestamp="1585417302320">
+    <state width="1877" height="269" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585900596848" />
+    <state width="1877" height="269" key="GridCell.Tab.0.right" timestamp="1585900596848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1899" height="270" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585417302320" />
-    <state x="446" y="232" key="SettingsEditor" timestamp="1585408561409">
+    <state width="1877" height="269" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585900596848" />
+    <state x="446" y="232" key="SettingsEditor" timestamp="1585754022605">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="446" y="232" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585408561409" />
-    <state x="72" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585417408638">
+    <state x="446" y="232" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585754022605" />
+    <state x="72" y="261" key="Vcs.Push.Dialog.v2" timestamp="1585417424669">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="72" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585417408638" />
-    <state x="136" y="247" key="run.anything.popup" timestamp="1585396094592">
+    <state x="72" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585417424669" />
+    <state x="767" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585667445301">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="136" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585396094591" />
+    <state x="767" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585667445301" />
+    <state x="136" y="247" key="run.anything.popup" timestamp="1585815621156">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="136" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585815621156" />
   </component>
 </project>

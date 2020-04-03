@@ -20,7 +20,7 @@ export default props => (
             <Switch>
                 <Route exact path ={"/"} component={Home}/>
                 <Route exact path ={"/get-started"} component={GetStarted}/>
-                <Route exact path ={"/editor"} component={Editor}/>
+                <Route exact path ={"/editor"} component={Editor} />
                 <Route exact path={"/register"} component={Register}/>
                 <Route exact path={"/login"} component={Login}/>
                 <Route exact path={"/dashboard"} component={DashboardMerger}/>

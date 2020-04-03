@@ -4,12 +4,12 @@ export const authMenu = [
         pathname: "/"
     },
     {
-        label: "AddressBook",
-        pathname: "/address-book"
-    },
-    {
         label: "Dashboard",
         pathname: "/dashboard"
+    },
+    {
+        label: "AddressBook",
+        pathname: "/address-book"
     },
     {
         label: "Editor",

@@ -39,7 +39,8 @@ const styles = theme => ({
     tabItem: {
         paddingTop: 20,
         paddingBottom: 20,
-        minWidth: "auto"
+        minWidth: "auto",
+        fontWeight: 600
     },
     navDrawer: {
         display: "none",
@@ -84,7 +85,7 @@ const styles = theme => ({
 class NavBar extends Component {
     state = {
         tabValue: 0,
-        auth: false,
+        auth: true,
         anchorEl: null,
         search: ""
     };
@@ -94,9 +95,9 @@ class NavBar extends Component {
         switch (this.props.history.location.pathname) {
             case "/" :
                 return 0;
-            case "/address-book":
-                return 1;
             case "/dashboard" :
+                return 1;
+            case "/address-book":
                 return 2;
             case "/editor" :
                 return 3;
@@ -176,7 +177,7 @@ class NavBar extends Component {
                         </FormGroup>
                         <div className={classes.navDrawer}><NavDrawer auth={auth}/></div>
                         <Link to={"/"} className={classes.link}>
-                            <Typography>
+                            <Typography style={{fontWeight: 600}}>
                                 <span>AddressMerge WEB</span>
                             </Typography>
                         </Link>

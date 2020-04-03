@@ -13,7 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from "@material-ui/styles";
 import {withRouter} from "react-router-dom";
-import bg_addr from '../../containers/images/bg_addr.jpg';
+// import bg_addr from '../../containers/images/bg_addr.jpg';
 
 const styles = theme => ({
     root: {
@@ -25,7 +25,7 @@ const styles = theme => ({
     },
     image: {
         // backgroundImage: 'url(https://source.unsplash.com/random)',
-        backgroundImage: `url(${bg_addr})`,
+        // backgroundImage: `url(${bg_addr})`,
         backgroundRepeat: 'no-repeat',
         backgroundColor:
             theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -89,7 +89,7 @@ class Login extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(this.state);
-    }
+    };
 
     render() {
         const {classes} = this.props;

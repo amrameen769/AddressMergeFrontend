@@ -16,7 +16,7 @@ const drawerWidth = 250;
 
 const useStyles = makeStyles(theme => ({
     list: {
-        width: 250,
+        width: 250
     },
     toolbar: theme.mixins.toolbar,
     drawer: {

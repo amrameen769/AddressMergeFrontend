@@ -46,6 +46,9 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         width: "100%",
     },
+    tabHead: {
+        fontWeight: 600
+    }
 }));
 
 export default function AddressBook() {
@@ -72,9 +75,9 @@ export default function AddressBook() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Manage Sponsors" {...a11yProps(0)} />
-                    <Tab label="Manage Candidates" {...a11yProps(1)} />
-                    <Tab label="Manage Funds" {...a11yProps(2)} />
+                    <Tab className={classes.tabHead} label="Manage Sponsors" {...a11yProps(0)} />
+                    <Tab className={classes.tabHead} label="Manage Candidates" {...a11yProps(1)} />
+                    <Tab className={classes.tabHead} label="Manage Funds" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <SwipeableViews
