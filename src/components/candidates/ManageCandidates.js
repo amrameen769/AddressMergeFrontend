@@ -1,9 +1,12 @@
 import React from 'react';
+import AddCandidates from "./AddCandidates";
+import ListCandidates from "./ListCandidates";
 
 const ManageCandidates = () => {
     return (
         <div>
-            <h1>Manage Candidates</h1>
+            <AddCandidates/>
+            <ListCandidates/>
         </div>
     );
 };

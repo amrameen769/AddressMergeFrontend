@@ -11,7 +11,7 @@ import Container from "@material-ui/core/Container";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import AddCategory from "../../containers/AddCategory";
+import AddCategory from "../misc/AddCategory";
 
 class AddSponsors extends Component {
     state = {
@@ -75,7 +75,7 @@ class AddSponsors extends Component {
         return (
             <Container className={classes.root}>
                 <h2>Add Sponsors</h2>
-                <form onSubmit={this.handleSubmit} noValidate={false}>
+                <form onSubmit={this.handleSubmit} noValidate={true}>
                     <Grid container spacing={2} direction={"row"} justify={"center"} alignItems={"center"}>
                         <Grid item xs={12} xl={6}>
                             <FormControl fullWidth>
@@ -170,7 +170,7 @@ class AddSponsors extends Component {
                                 <CountryDropdown
                                     className={classes.dropDown}
                                     value={country}
-                                    onChange={(val) => this.selectCountry(val)}/>
+                                    onChange={this.selectCountry}/>
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} xl={3}>
@@ -180,7 +180,7 @@ class AddSponsors extends Component {
                                     disableWhenEmpty={true}
                                     country={country}
                                     value={region}
-                                    onChange={(val) => this.selectRegion(val)}/>
+                                    onChange={this.selectRegion}/>
                             </FormControl>
                         </Grid>
                         <Grid item xs={12} xl={3}>
@@ -235,7 +235,7 @@ class AddSponsors extends Component {
                             </FormControl>
                         </Grid>
                         <Grid item>
-                            <AddCategory name={"sponsorGroup"} action={"Add Sponsor Group"} method={(data) => {
+                            <AddCategory name={"sponsor-group"} action={"Add Sponsor Group"} method={(data) => {
                                 console.log(data)
                             }}/>
                         </Grid>

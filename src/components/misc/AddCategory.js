@@ -28,12 +28,12 @@ export default function AddCategory(props) {
     };
 
     const handleAdd = () => {
-        if (name === "candidateCategory") {
+        if (name === "candidate-category") {
             const category = {
                 categoryName: document.getElementById(`${name}`).value
             };
             method(category);
-        } else if (name === "sponsorGroup") {
+        } else if (name === "sponsor-group") {
             const category = {
                 groupName: document.getElementById(`${name}`).value
             };

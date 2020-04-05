@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import SwipeableViews from 'react-swipeable-views';
 import ManageSponsors from "../components/sponsors/ManageSponsors";
 import ManageCandidates from "../components/candidates/ManageCandidates";
-import ManageFunds from "../components/sponsors/ManageFunds";
+import ManageDonations from "../components/sponsors/ManageDonations";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 export default function AddressBook() {
     const classes = useStyles();
     const theme = useTheme();
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(2);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -77,7 +77,7 @@ export default function AddressBook() {
                 >
                     <Tab className={classes.tabHead} label="Manage Sponsors" {...a11yProps(0)} />
                     <Tab className={classes.tabHead} label="Manage Candidates" {...a11yProps(1)} />
-                    <Tab className={classes.tabHead} label="Manage Funds" {...a11yProps(2)} />
+                    <Tab className={classes.tabHead} label="Manage Donations" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -92,7 +92,7 @@ export default function AddressBook() {
                     <ManageCandidates/>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    <ManageFunds/>
+                    <ManageDonations/>
                 </TabPanel>
             </SwipeableViews>
         </div>
