@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Checkbox} from "@material-ui/core";
 import MaterialTableUI from "../misc/MaterialTableUI";
+import {fetchSponsors} from './sponsorsSlice';
+import PropTypes from 'prop-types';
+import {returnArrayData} from "../misc/utility";
 
 const columns = [
     {
@@ -9,51 +12,45 @@ const columns = [
     },
     {
         field: 'fullName', title: 'Name',
+        render: rowData => {
+            return rowData.firstName + ' ' + rowData.lastName;
+        }
     },
     {
         field: 'email',
         title: 'Email',
-        format: value => (value)
     },
     {
         field: 'phoneNo',
         title: 'Phone Number',
-        format: value => (value)
     },
     {
         field: 'address',
         title: 'Address',
-        format: value => (value)
     },
     {
         field: 'city',
         title: 'City',
-        format: value => (value)
     },
     {
         field: 'country',
         title: 'Country',
-        format: value => (value)
     },
     {
         field: 'region',
         title: 'State',
-        format: value => (value)
     },
     {
         field: 'zip',
         title: 'Zip Code',
-        format: value => (value)
     },
     {
         field: 'createdAt',
         title: 'Created At',
-        format: value => (value)
     },
     {
-        field: 'sponsorGroup',
+        field: 'sponsorGroupName',
         title: 'Group Name',
-        format: value => (value)
     },
     {
         field: 'status',
@@ -64,39 +61,30 @@ const columns = [
     }
 ];
 
-const rows = [
-    createSponsorData(1, 'Al Ameen', 'AR', 'amrameen769@gmail.com', '7025886445', '1234 Main Street', 'India', 'Kerala', 'Thiruvananthapuram',
-        152634, true, "Mon Apr 06 2020 16:14:39 GMT+0530 (India Standard Time)", 'International'),
-];
+class ListSponsors extends Component {
+    componentDidMount() {
+        this.props.fetchSponsors();
+    }
 
-function createSponsorData(id, firstName, lastName, email, phoneNo, address, country, region, city, zip, status, createdAt, sponsorGroup) {
-    return {
-        id,
-        fullName: firstName + " " + lastName,
-        email,
-        phoneNo,
-        address,
-        country,
-        region,
-        city,
-        zip,
-        status,
-        createdAt,
-        sponsorGroup
-    };
+    render() {
+        const {sponsors} = this.props;
+        const rows = returnArrayData(sponsors);
+        return (
+            <div>
+                <h2>Sponsors</h2>
+                <MaterialTableUI columns={columns} data={rows} title={"Sponsors Table"}/>
+            </div>
+        );
+    }
 }
 
-const ListSponsors = props => {
-    return (
-        <div>
-            <h2>Sponsors</h2>
-            <MaterialTableUI columns={columns} data={rows} title={"Sponsors Table"}/>
-        </div>
-    );
+ListSponsors.propTypes = {
+    fetchSponsors: PropTypes.func.isRequired,
+    sponsors: PropTypes.array.isRequired
 };
 
-ListSponsors.propTypes = {};
+const mapStateToProps = state => ({
+    sponsors: state.sponsors.sponsors
+});
 
-const mapStateToProps = state => ({});
-
-export default connect(mapStateToProps, {})(ListSponsors);
+export default connect(mapStateToProps, {fetchSponsors})(ListSponsors);
