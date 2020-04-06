@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DataTable from "../misc/TableUI";
 import {Checkbox} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import MaterialTableUI from "../misc/MaterialTableUI";
 
 function createCandidateData(id, firstName, lastName, email, phoneNo, address, country, region, city, zip, createdAt, status, candidateCategory, owner, sponsor) {
     return {
@@ -25,108 +24,58 @@ function createCandidateData(id, firstName, lastName, email, phoneNo, address, c
 
 const columns = [
     {
-        id: 'id', label: '#', minWidth: 30,
-        format: value => (value)
+        field: 'id', title: '#'
     },
     {
-        id: 'fullName', label: 'Name', minWidth: 170,
-        format: value => (value)
+        field: 'fullName', title: 'Name'
     },
     {
-        id: 'email',
-        label: 'Email',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'email',
+        title: 'Email',
     },
     {
-        id: 'phoneNo',
-        label: 'Phone Number',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'phoneNo',
+        title: 'Phone Number',
     },
     {
-        id: 'address',
-        label: 'Address',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'address',
+        title: 'Address',
     },
     {
-        id: 'city',
-        label: 'City',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'city',
+        title: 'City',
     },
     {
-        id: 'country',
-        label: 'Country',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'country',
+        title: 'Country',
     },
     {
-        id: 'region',
-        label: 'State',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'region',
+        title: 'State',
     },
     {
-        id: 'zip',
-        label: 'Zip Code',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'zip',
+        title: 'Zip Code',
     },
     {
-        id: 'createdAt',
-        label: 'Created At',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'createdAt',
+        title: 'Created At',
     },
     {
-        id: 'candidateCategory',
-        label: 'Category',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'candidateCategory',
+        title: 'Category',
     },
     {
-        id: 'sponsor',
-        label: 'Sponsor Name',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
+        field: 'sponsor',
+        title: 'Sponsor Name',
     },
     {
-        id: 'status',
-        label: 'Status',
-        minWidth: 50,
-        align: 'center',
-        format: (value) => {
-            return <Checkbox readOnly checked={value}/>
+        field: 'status',
+        title: 'Status',
+        render: (rowData) => {
+            return <Checkbox readOnly checked={rowData.status}/>
         },
-    },
-    {
-        id: 'edit-delete',
-        label: 'Edit/Delete',
-        minWidth: 170,
-        align: 'center',
-        format: (value) => {
-            return (
-                <div>
-                    <Button id={value} color={"primary"} variant={"outlined"}
-                            onClick={() => console.log("Edit")}>Edit</Button>
-                    <Button id={value} color={"primary"} variant={"outlined"}
-                            onClick={() => console.log("Delete")}>Delete</Button>
-                </div>
-            )
-        }
-    },
+    }
 ];
 
 const rows = [
@@ -137,7 +86,7 @@ const ListCandidates = props => {
     return (
         <div>
             <h2>Candidates</h2>
-            <DataTable columns={columns} rows={rows}/>
+            <MaterialTableUI columns={columns} data={rows} title="Candidates Table"/>
         </div>
     );
 };

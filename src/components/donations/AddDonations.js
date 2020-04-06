@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import SaveIcon from "@material-ui/icons/Save";
 
 class AddDonations extends Component {
     state = {
@@ -104,7 +105,8 @@ class AddDonations extends Component {
                                     />
                                 </FormControl>
                             </Grid>
-                            <Grid container item spacing={2} direction="row" alignItems={"center"} justify={"space-between"}>
+                            <Grid container item spacing={2} direction="row" alignItems={"center"}
+                                  justify={"space-between"}>
                                 <Grid item xs={12} xl={6}>
                                     <FormControl variant="outlined" fullWidth>
                                         <InputLabel id="SponsorLabel">Sponsor Name</InputLabel>
@@ -145,7 +147,7 @@ class AddDonations extends Component {
                                 </Grid>
                             </Grid>
                             <Grid item xs={12}>
-                                <Button variant={"contained"} type={"submit"} color={"primary"}>
+                                <Button startIcon={<SaveIcon/>} variant={"contained"} type={"submit"} color={"primary"}>
                                     Save
                                 </Button>
                             </Grid>

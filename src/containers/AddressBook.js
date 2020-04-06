@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import SwipeableViews from 'react-swipeable-views';
 import ManageSponsors from "../components/sponsors/ManageSponsors";
 import ManageCandidates from "../components/candidates/ManageCandidates";
-import ManageDonations from "../components/sponsors/ManageDonations";
+import ManageDonations from "../components/donations/ManageDonations";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
 export default function AddressBook() {
     const classes = useStyles();
     const theme = useTheme();
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);

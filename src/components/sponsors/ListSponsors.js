@@ -1,120 +1,96 @@
 import React from 'react';
-import DataTable from "../misc/TableUI";
 import {connect} from 'react-redux';
 import {Checkbox} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import MaterialTableUI from "../misc/MaterialTableUI";
 
 const columns = [
     {
-        id: 'id', label: '#', minWidth: 30,
+        field: 'id', title: '#'
+    },
+    {
+        field: 'fullName', title: 'Name',
+    },
+    {
+        field: 'email',
+        title: 'Email',
         format: value => (value)
     },
     {
-        id: 'fullName', label: 'Name', minWidth: 170,
+        field: 'phoneNo',
+        title: 'Phone Number',
         format: value => (value)
     },
     {
-        id: 'email',
-        label: 'Email',
-        minWidth: 170,
-        align: 'left',
+        field: 'address',
+        title: 'Address',
         format: value => (value)
     },
     {
-        id: 'phoneNo',
-        label: 'Phone Number',
-        minWidth: 170,
-        align: 'left',
+        field: 'city',
+        title: 'City',
         format: value => (value)
     },
     {
-        id: 'address',
-        label: 'Address',
-        minWidth: 170,
-        align: 'left',
+        field: 'country',
+        title: 'Country',
         format: value => (value)
     },
     {
-        id: 'city',
-        label: 'City',
-        minWidth: 170,
-        align: 'left',
+        field: 'region',
+        title: 'State',
         format: value => (value)
     },
     {
-        id: 'country',
-        label: 'Country',
-        minWidth: 170,
-        align: 'left',
+        field: 'zip',
+        title: 'Zip Code',
         format: value => (value)
     },
     {
-        id: 'region',
-        label: 'State',
-        minWidth: 170,
-        align: 'left',
+        field: 'createdAt',
+        title: 'Created At',
         format: value => (value)
     },
     {
-        id: 'zip',
-        label: 'Zip Code',
-        minWidth: 170,
-        align: 'left',
+        field: 'sponsorGroup',
+        title: 'Group Name',
         format: value => (value)
     },
     {
-        id: 'createdAt',
-        label: 'Created At',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
-    },
-    {
-        id: 'sponsorGroup',
-        label: 'Group Name',
-        minWidth: 170,
-        align: 'left',
-        format: value => (value)
-    },
-    {
-        id: 'status',
-        label: 'Status',
-        minWidth: 50,
-        align: 'center',
-        format: (value) => {
-            return <Checkbox readOnly checked={value}/>
+        field: 'status',
+        title: 'Status',
+        render: (rowData) => {
+            return <Checkbox readOnly checked={rowData.status}/>
         },
-    },
-    {
-        id: 'edit-delete',
-        label: 'Edit/Delete',
-        minWidth: 170,
-        align: 'center',
-        format: (value) => {
-            return (
-                <div>
-                    <Button id={value} color={"primary"} variant={"outlined"} onClick={() => console.log("Edit")}>Edit</Button>
-                    <Button id={value} color={"primary"} variant={"outlined"} onClick={() => console.log("Delete")}>Delete</Button>
-                </div>
-            )
-        }
-    },
+    }
 ];
 
 const rows = [
-    createSponsorData(1, 'Al Ameen', 'AR', 'amrameen769@gmail.com', '7025886445', '1234 Main Street', 'India', 'Kerala', 'Tvm',
-        152634, true, 'International'),
+    createSponsorData(1, 'Al Ameen', 'AR', 'amrameen769@gmail.com', '7025886445', '1234 Main Street', 'India', 'Kerala', 'Thiruvananthapuram',
+        152634, true, "Mon Apr 06 2020 16:14:39 GMT+0530 (India Standard Time)", 'International'),
 ];
 
-function createSponsorData(id, firstName, lastName, email, phoneNo, address, country, region, city, zip, status, sponsorGroup) {
-    return {id, fullName: firstName + " " + lastName, email, phoneNo, address, country, region, city, zip, status, sponsorGroup};
+function createSponsorData(id, firstName, lastName, email, phoneNo, address, country, region, city, zip, status, createdAt, sponsorGroup) {
+    return {
+        id,
+        fullName: firstName + " " + lastName,
+        email,
+        phoneNo,
+        address,
+        country,
+        region,
+        city,
+        zip,
+        status,
+        createdAt,
+        sponsorGroup
+    };
 }
 
 const ListSponsors = props => {
     return (
         <div>
             <h2>Sponsors</h2>
-            <DataTable columns={columns} rows={rows}/>
+            <MaterialTableUI columns={columns} data={rows} title={"Sponsors Table"}/>
         </div>
     );
 };
