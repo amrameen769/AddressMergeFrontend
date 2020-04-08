@@ -12,21 +12,24 @@ import DashboardMerger from "../components/client/DashboardMerger";
 import AddressBook from "./AddressBook";
 import ResetPassword from "../components/client/ResetPassword";
 import ProfileSettings from "../components/client/ProfileSettings";
+import Alerts from "./alerts/Alerts";
+import PrivateRoute from "./PrivateRoute";
 
 export default props => (
     <HashRouter>
         <ScrollToTop>
             <NavBar/>
+            <Alerts/>
             <Switch>
-                <Route exact path ={"/"} component={Home}/>
-                <Route exact path ={"/get-started"} component={GetStarted}/>
-                <Route exact path ={"/editor"} component={Editor} />
+                <Route exact path={"/"} component={Home}/>
+                <Route exact path={"/get-started"} component={GetStarted}/>
+                <PrivateRoute exact path={"/editor"} component={Editor}/>
                 <Route exact path={"/register"} component={Register}/>
                 <Route exact path={"/login"} component={Login}/>
-                <Route exact path={"/dashboard"} component={DashboardMerger}/>
-                <Route exact path={"/address-book"} component={AddressBook}/>
+                <PrivateRoute exact path={"/dashboard"} component={DashboardMerger}/>
+                <PrivateRoute exact path={"/address-book"} component={AddressBook}/>
                 <Route exact path={"/reset-password"} component={ResetPassword}/>
-                <Route exact path={"/profile-settings"} component={ProfileSettings}/>
+                <PrivateRoute exact path={"/profile-settings"} component={ProfileSettings}/>
             </Switch>
             <BackToTop {...props}/>
         </ScrollToTop>

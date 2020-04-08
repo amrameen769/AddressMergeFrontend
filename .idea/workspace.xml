@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="UI Fresh v0.1">
-      <change afterPath="$PROJECT_DIR$/src/components/misc/utility.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sponsors/sponsorsSlice.js" afterDir="false" />
+    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/client/authSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/messages/messagesSlice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/PrivateRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/alerts/AlertTemplate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/alerts/Alerts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sponsors/ListSponsors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sponsors/ListSponsors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sponsors/sponsorsSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sponsors/sponsorsSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +125,10 @@
       <workItem from="1586102078677" duration="8747000" />
       <workItem from="1586169388600" duration="4197000" />
       <workItem from="1586173871541" duration="9391000" />
-      <workItem from="1586191946478" duration="5422000" />
+      <workItem from="1586191946478" duration="5438000" />
+      <workItem from="1586266257611" duration="2834000" />
+      <workItem from="1586320668475" duration="26757000" />
+      <workItem from="1586368299253" duration="1564000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -186,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586179204248</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="UI Fresh v0.1">
+      <created>1586197396522</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586197396522</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,10 +241,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586183764652" />
-    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1586197378122">
+    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1586197395718">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586197378122" />
+    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586197395718" />
     <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1585900905029">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -232,22 +253,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="1877" height="268" key="GridCell.Tab.0.bottom" timestamp="1586193721738">
+    <state width="928" height="264" key="GridCell.Tab.0.bottom" timestamp="1586368524625">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586193721738" />
-    <state width="1877" height="268" key="GridCell.Tab.0.center" timestamp="1586193721738">
+    <state width="928" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586368524625" />
+    <state width="928" height="264" key="GridCell.Tab.0.center" timestamp="1586368524625">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586193721738" />
-    <state width="1877" height="268" key="GridCell.Tab.0.left" timestamp="1586193721738">
+    <state width="928" height="264" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586368524625" />
+    <state width="928" height="264" key="GridCell.Tab.0.left" timestamp="1586368524624">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586193721738" />
-    <state width="1877" height="268" key="GridCell.Tab.0.right" timestamp="1586193721738">
+    <state width="928" height="264" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586368524624" />
+    <state width="928" height="264" key="GridCell.Tab.0.right" timestamp="1586368524625">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="268" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586193721738" />
+    <state width="928" height="264" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586368524625" />
     <state x="446" y="232" key="SettingsEditor" timestamp="1585919315037">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

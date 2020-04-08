@@ -10,13 +10,13 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {AccountCircle} from "@material-ui/icons";
 import {authMenu, guestMenu} from "./Menu";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 import NavDrawer from "./NavDrawer";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import SearchIcon from '@material-ui/icons/Search';
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
+import {logoutUser} from "../components/client/authSlice";
 
 const styles = theme => ({
     root: {
@@ -85,9 +85,13 @@ const styles = theme => ({
 class NavBar extends Component {
     state = {
         tabValue: 0,
-        auth: true,
         anchorEl: null,
         search: ""
+    };
+
+    static propTypes = {
+        auth: PropTypes.object.isRequired,
+        logoutUser: PropTypes.func.isRequired,
     };
 
     currentAuth = () => {
@@ -126,15 +130,23 @@ class NavBar extends Component {
         this.setState({tabValue: value});
     };
 
-    handleToggler = () => {
-        this.setState(prevState => ({
-            auth: !prevState.auth
-        }));
-    };
+    // handleToggler = () => {
+    //     this.setState(prevState => ({
+    //         auth: !prevState.auth
+    //     }));
+    // };
+
     handleMenuClose = () => {
         this.setState({
             anchorEl: null
         })
+    };
+
+    handleLogout = () => {
+        this.setState({
+            anchorEl: null
+        });
+        this.props.logoutUser();
     };
 
     handleMenuOpen = (event) => {
@@ -145,9 +157,11 @@ class NavBar extends Component {
 
     render() {
         const {classes} = this.props;
-        const {auth, anchorEl} = this.state;
+        const {anchorEl} = this.state;
         const menuId = "primary-menu";
         const menuOpen = Boolean(anchorEl);
+
+        const {isAuthenticated, user} = this.props.auth;
 
         const renderMenu = (
             <Menu
@@ -160,6 +174,7 @@ class NavBar extends Component {
                 onClose={this.handleMenuClose}
             >
                 <MenuItem onClick={this.handleMenuClose} component={Link} to={"/profile-settings"}>Profile</MenuItem>
+                <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
             </Menu>
         );
 
@@ -168,21 +183,21 @@ class NavBar extends Component {
                 <CssBaseline/>
                 <AppBar position={"fixed"} color={"primary"} className={classes.appBar}>
                     <Toolbar>
-                        <FormGroup>
-                            <FormControlLabel
-                                control={<Switch checked={auth} onChange={this.handleToggler}
-                                                 aria-label="login switch"/>}
-                                label={auth ? 'Logout' : 'Login'}
-                            />
-                        </FormGroup>
-                        <div className={classes.navDrawer}><NavDrawer auth={auth}/></div>
+                        {/*<FormGroup>*/}
+                        {/*    <FormControlLabel*/}
+                        {/*        control={<Switch checked={auth} onChange={this.handleToggler}*/}
+                        {/*                         aria-label="login switch"/>}*/}
+                        {/*        label={auth ? 'Logout' : 'Login'}*/}
+                        {/*    />*/}
+                        {/*</FormGroup>*/}
+                        <div className={classes.navDrawer}><NavDrawer auth={isAuthenticated}/></div>
                         <Link to={"/"} className={classes.link}>
                             <Typography style={{fontWeight: 600}}>
                                 <span>AddressMerge WEB</span>
                             </Typography>
                         </Link>
                         <div className={classes.tabContainer}>
-                            {this.state.auth ? (
+                            {isAuthenticated ? (
                                 <Tabs
                                     value={this.currentAuth()}
                                     onChange={this.handleChange}
@@ -233,7 +248,7 @@ class NavBar extends Component {
                             </IconButton>
                         </Paper>
                         <div className={classes.root}/>
-                        {this.state.auth && (
+                        {isAuthenticated && (
                             <div>
                                 <IconButton
                                     edge={"end"}
@@ -256,4 +271,8 @@ class NavBar extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(NavBar));
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps,{logoutUser})(withRouter(withStyles(styles)(NavBar)));

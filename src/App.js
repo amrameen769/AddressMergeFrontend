@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Routes from './containers/routes';
 import {ThemeProvider} from "@material-ui/styles";
 import {createMuiTheme} from "@material-ui/core";
 import {blue, indigo} from "@material-ui/core/colors";
-import useVariableFont from "react-variable-fonts";
+import {Provider as AlertProvider} from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
+import store from "./app/store";
+import {loadUser} from "./components/client/authSlice";
 
 // const initialSettings = {
 //     BVEL: 20,
 //     SHDW: 100
 // };
+
 
 const theme = createMuiTheme({
     palette: {
@@ -19,22 +23,40 @@ const theme = createMuiTheme({
         primary: {
             main: blue[500]
         }
-    },typography: {
+    }, typography: {
         fontFamily: ['"Comfortaa"', 'cursive'].join(',')
     }
 });
 
-function App() {
-    const [normalStyles] = useVariableFont("Comfortaa", "normal");
+//Alert Options
+const alertOptions = {
+    timeout: 3000,
+    transition: 'fade',
+    position: 'middle right',
+    containerStyle: {
+        fontSize: '12px'
+    }
+};
+
+class App extends Component {
+    // const [normalStyles] = useVariableFont("Comfortaa", "normal");
     // const [customStyles, updateStyles] = useVariableFont("Comfortaa", initialSettings);
 
-    return (
-        <div className="App" style={{...normalStyles}}>
-            <ThemeProvider theme={theme}>
-                <Routes/>
-            </ThemeProvider>
-        </div>
-    );
+    componentDidMount() {
+        store.dispatch(loadUser());
+    }
+
+    render() {
+        return (
+            <div className="App" >
+                <AlertProvider template={AlertTemplate} {...alertOptions}>
+                    <ThemeProvider theme={theme}>
+                        <Routes/>
+                    </ThemeProvider>
+                </AlertProvider>
+            </div>
+        );
+    }
 }
 
 export default App;

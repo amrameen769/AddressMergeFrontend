@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -13,6 +13,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from "@material-ui/styles";
 import {withRouter} from "react-router-dom";
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {loginUser} from './authSlice';
 // import bg_addr from '../../containers/images/bg_addr.jpg';
 
 const styles = theme => ({
@@ -56,7 +59,7 @@ const styles = theme => ({
 
 class Login extends Component {
     state = {
-        email: "",
+        username: "",
         password: "",
         remember: false
     };
@@ -88,10 +91,13 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        this.props.loginUser(this.state.username, this.state.password);
     };
 
     render() {
+        if(this.props.isAuthenticated){
+            return <Redirect to={"/address-book"} />
+        }
         const {classes} = this.props;
         return (
             <div>
@@ -112,10 +118,10 @@ class Login extends Component {
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    type="email"
+                                    id="username"
+                                    label="Username"
+                                    name="username"
+                                    type="username"
                                     autoComplete="email"
                                     autoFocus
                                     onChange={this.handleOnChange}
@@ -175,4 +181,13 @@ class Login extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(Login));
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, {loginUser})(withRouter(withStyles(styles)(Login)));

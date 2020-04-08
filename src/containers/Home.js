@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Launcher from "./Launcher";
+import Alerts from "./alerts/Alerts";
 
 // import bg_home from "./images/bg_home.jpg";
 
