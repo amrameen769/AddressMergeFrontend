@@ -3,7 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -14,6 +14,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {registerUser} from "./authSlice";
 import {sendMessage} from "../messages/messagesSlice";
+import PropTypes from 'prop-types';
 // import bg_addr from '../../containers/images/bg_addr.jpg';
 
 const styles = theme => ({
@@ -87,14 +88,25 @@ class Register extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const {username, first_name, last_name, email, password, confirmPassword} = this.state;
-        if(password !== confirmPassword){
+        if (password !== confirmPassword) {
             this.props.sendMessage("Passwords Do Not Match", "warning");
         } else {
             this.props.registerUser(username, password, first_name, last_name, email);
+            this.setState({
+                first_name: "",
+                last_name: "",
+                username: "",
+                email: "",
+                password: "",
+                confirmPassword: "",
+            });
         }
     };
 
     render() {
+        if (this.props.token) {
+            return <Redirect to={"/login"}/>
+        }
         const {classes} = this.props;
         return (
             <div>
@@ -214,6 +226,14 @@ class Register extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    token: state.auth.token
+});
 
+Register.propTypes = {
+    token: PropTypes.string,
+    registerUser: PropTypes.func.isRequired,
+    sendMessage: PropTypes.func.isRequired,
+};
 
-export default connect(null, {registerUser, sendMessage})(withRouter(withStyles(styles)(Register)));
+export default connect(mapStateToProps, {registerUser, sendMessage})(withRouter(withStyles(styles)(Register)));

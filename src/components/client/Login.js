@@ -58,11 +58,23 @@ const styles = theme => ({
 });
 
 class Login extends Component {
-    state = {
-        username: "",
-        password: "",
-        remember: false
-    };
+
+    constructor(props) {
+        super(props);
+        if(props.user){
+            this.state = {
+                username: props.user.username,
+                password: "",
+                remember: false
+            };
+        } else {
+            this.state = {
+                username: "",
+                password: "",
+                remember: false
+            };
+        }
+    }
 
     copyright() {
         return (
@@ -95,10 +107,11 @@ class Login extends Component {
     };
 
     render() {
-        if(this.props.isAuthenticated){
-            return <Redirect to={"/address-book"} />
+        if (this.props.isAuthenticated) {
+            return <Redirect to={"/address-book"}/>
         }
         const {classes} = this.props;
+        const {username} = this.state;
         return (
             <div>
                 <Grid container className={classes.root}>
@@ -123,6 +136,7 @@ class Login extends Component {
                                     name="username"
                                     type="username"
                                     autoComplete="email"
+                                    value={username}
                                     autoFocus
                                     onChange={this.handleOnChange}
                                 />
@@ -183,11 +197,13 @@ class Login extends Component {
 
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool
+    isAuthenticated: PropTypes.bool,
+    user: PropTypes.object
 };
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user
 });
 
 export default connect(mapStateToProps, {loginUser})(withRouter(withStyles(styles)(Login)));

@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import axios from 'axios';
 import {returnErrors, getErrors, createMessage, getNotifications} from "../messages/messagesSlice";
+import {flushSponsors} from "../sponsors/sponsorsSlice";
 
 const initialState = {
     token: localStorage.getItem("token"),
@@ -35,15 +36,13 @@ export const slice = createSlice({
             state.token = action.payload.token;
         },
         registerSuccess: (state, action) => {
-
-        },
-        registerFailure: (state, action) => {
-
+            state.token = action.payload.token;
+            state.user = action.payload.user;
         }
     }
 });
 
-export const {userLoading, userLoaded, authError, loginSuccess, registerSuccess, registerFailure} = slice.actions;
+export const {userLoading, userLoaded, authError, loginSuccess, registerSuccess} = slice.actions;
 
 //Setup config with token - helper function
 export const tokenConfig = getState => {
@@ -106,6 +105,7 @@ export const logoutUser = () => (dispatch, getState) => {
     axios.post('http://127.0.0.1:8000/api/clients/auth/logout', null, tokenConfig(getState))
         .then(result => {
             dispatch(authError());
+            dispatch(flushSponsors());
             dispatch(getNotifications(createMessage("Logged out Successfully", "success")))
         })
         .catch(error => {
@@ -127,7 +127,10 @@ export const registerUser = (username, password, first_name, last_name, email) =
             dispatch(registerSuccess(result.data))
         })
         .catch(error => {
-            console.log(error)
+            dispatch(authError());
+            if (error.response)
+                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Register Error, Check your Network", "warning")))
         })
 };
 

@@ -15,11 +15,14 @@ export const slice = createSlice({
         },
         addSponsor: (state, action) => {
             state.sponsors.push(action.payload);
+        },
+        flushSponsors: (state) => {
+            state.sponsors = []
         }
     }
 });
 
-export const {getSponsors, addSponsor} = slice.actions;
+export const {getSponsors, addSponsor, flushSponsors} = slice.actions;
 
 export const fetchSponsors = () => (dispatch) => {
     axios.get('http://127.0.0.1:8000/api/core/sponsors/')
