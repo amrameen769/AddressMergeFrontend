@@ -11,6 +11,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from "@material-ui/styles";
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {registerUser} from "./authSlice";
+import {sendMessage} from "../messages/messagesSlice";
 // import bg_addr from '../../containers/images/bg_addr.jpg';
 
 const styles = theme => ({
@@ -54,8 +57,8 @@ const styles = theme => ({
 
 class Register extends Component {
     state = {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         username: "",
         email: "",
         password: "",
@@ -83,7 +86,12 @@ class Register extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        const {username, first_name, last_name, email, password, confirmPassword} = this.state;
+        if(password !== confirmPassword){
+            this.props.sendMessage("Passwords Do Not Match", "warning");
+        } else {
+            this.props.registerUser(username, password, first_name, last_name, email);
+        }
     };
 
     render() {
@@ -109,10 +117,10 @@ class Register extends Component {
                                             margin="normal"
                                             required
                                             fullWidth
-                                            name="firstName"
+                                            name="first_name"
                                             label="First Name"
                                             type="text"
-                                            id="firstName"
+                                            id="first_name"
                                             onChange={this.handleOnChange}
                                         />
                                     </Grid>
@@ -122,10 +130,10 @@ class Register extends Component {
                                             margin="normal"
                                             required
                                             fullWidth
-                                            name="lastName"
+                                            name="last_name"
                                             label="Last Name"
                                             type="text"
-                                            id="lastName"
+                                            id="last_name"
                                             onChange={this.handleOnChange}
                                         />
                                     </Grid>
@@ -206,4 +214,6 @@ class Register extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(Register));
+
+
+export default connect(null, {registerUser, sendMessage})(withRouter(withStyles(styles)(Register)));

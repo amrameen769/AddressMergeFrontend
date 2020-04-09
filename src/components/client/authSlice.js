@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import axios from 'axios';
-import {returnErrors, getErrors} from "../messages/messagesSlice";
+import {returnErrors, getErrors, createMessage, getNotifications} from "../messages/messagesSlice";
 
 const initialState = {
     token: localStorage.getItem("token"),
@@ -34,10 +34,16 @@ export const slice = createSlice({
             state.user = action.payload.user;
             state.token = action.payload.token;
         },
+        registerSuccess: (state, action) => {
+
+        },
+        registerFailure: (state, action) => {
+
+        }
     }
 });
 
-export const {userLoading, userLoaded, authError, loginSuccess} = slice.actions;
+export const {userLoading, userLoaded, authError, loginSuccess, registerSuccess, registerFailure} = slice.actions;
 
 //Setup config with token - helper function
 export const tokenConfig = getState => {
@@ -64,12 +70,13 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch(userLoading());
     axios.get('http://127.0.0.1:8000/api/clients/auth/client', tokenConfig(getState))
         .then(result => {
-            console.log(result.data);
             dispatch(userLoaded(result.data))
         })
         .catch(error => {
             dispatch(authError());
-            dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            if (error.response)
+                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Loading User Error", "warning")))
         })
 };
 
@@ -84,12 +91,13 @@ export const loginUser = (username, password) => dispatch => {
     const body = JSON.stringify({username, password});
     axios.post('http://127.0.0.1:8000/api/clients/auth/login', body, config)
         .then(result => {
-            console.log(result.data);
             dispatch(loginSuccess(result.data))
         })
         .catch(error => {
-            dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
             dispatch(authError());
+            if (error.response)
+                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Login Error, Check your Network", "warning")))
         })
 };
 
@@ -97,10 +105,29 @@ export const loginUser = (username, password) => dispatch => {
 export const logoutUser = () => (dispatch, getState) => {
     axios.post('http://127.0.0.1:8000/api/clients/auth/logout', null, tokenConfig(getState))
         .then(result => {
-            dispatch(authError())
+            dispatch(authError());
+            dispatch(getNotifications(createMessage("Logged out Successfully", "success")))
         })
         .catch(error => {
             dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+        })
+};
+
+//Register User
+export const registerUser = (username, password, first_name, last_name, email) => (dispatch) => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    const body = JSON.stringify({username, password, first_name, last_name, email});
+    axios.post('http://127.0.0.1:8000/api/clients/auth/register', body, config)
+        .then(result => {
+            dispatch(registerSuccess(result.data))
+        })
+        .catch(error => {
+            console.log(error)
         })
 };
 

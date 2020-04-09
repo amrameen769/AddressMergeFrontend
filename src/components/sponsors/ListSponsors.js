@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Checkbox} from "@material-ui/core";
 import MaterialTableUI from "../misc/MaterialTableUI";
-import {fetchSponsors} from './sponsorsSlice';
 import PropTypes from 'prop-types';
 import {returnArrayData} from "../misc/utility";
 
@@ -62,10 +61,6 @@ const columns = [
 ];
 
 class ListSponsors extends Component {
-    componentDidMount() {
-        this.props.fetchSponsors();
-    }
-
     render() {
         const {sponsors} = this.props;
         const rows = returnArrayData(sponsors);
@@ -79,7 +74,6 @@ class ListSponsors extends Component {
 }
 
 ListSponsors.propTypes = {
-    fetchSponsors: PropTypes.func.isRequired,
     sponsors: PropTypes.array.isRequired
 };
 
@@ -87,4 +81,4 @@ const mapStateToProps = state => ({
     sponsors: state.sponsors.sponsors
 });
 
-export default connect(mapStateToProps, {fetchSponsors})(ListSponsors);
+export default connect(mapStateToProps)(ListSponsors);

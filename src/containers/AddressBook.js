@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -10,6 +10,10 @@ import SwipeableViews from 'react-swipeable-views';
 import ManageSponsors from "../components/sponsors/ManageSponsors";
 import ManageCandidates from "../components/candidates/ManageCandidates";
 import ManageDonations from "../components/donations/ManageDonations";
+import {fetchSponsors} from "../components/sponsors/sponsorsSlice";
+import {connect} from "react-redux";
+import { withTheme } from '@material-ui/core/styles';
+
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -41,7 +45,7 @@ function a11yProps(index) {
     };
 }
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
     root: {
         backgroundColor: theme.palette.background.paper,
         width: "100%",
@@ -49,52 +53,69 @@ const useStyles = makeStyles(theme => ({
     tabHead: {
         fontWeight: 600
     }
-}));
+});
 
-export default function AddressBook() {
-    const classes = useStyles();
-    const theme = useTheme();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+class AddressBook extends Component{
+    state = {
+        value: 0
     };
 
-    const handleChangeIndex = index => {
-        setValue(index);
+    handleChange = (event, newValue) => {
+        this.setState({
+            value: newValue
+        });
     };
 
-    return (
-        <div className={classes.root}>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                    aria-label="full width tabs example"
+    handleChangeIndex = index => {
+        this.setState({
+            value: index
+        });
+    };
+
+    componentDidMount() {
+        this.props.fetchSponsors()
+    }
+
+    render() {
+        const {classes} = this.props;
+        const {theme} = this.props;
+        const {value} = this.state;
+        return (
+            <div className={classes.root}>
+                <AppBar position="static" color="default">
+                    <Tabs
+                        value={value}
+                        onChange={this.handleChange}
+                        indicatorColor="primary"
+                        textColor="primary"
+                        variant="fullWidth"
+                        aria-label="full width tabs example"
+                    >
+                        <Tab className={classes.tabHead} label="Manage Sponsors" {...a11yProps(0)} />
+                        <Tab className={classes.tabHead} label="Manage Candidates" {...a11yProps(1)} />
+                        <Tab className={classes.tabHead} label="Manage Donations" {...a11yProps(2)} />
+                    </Tabs>
+                </AppBar>
+                <SwipeableViews
+                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                    index={value}
+                    onChangeIndex={this.handleChangeIndex}
                 >
-                    <Tab className={classes.tabHead} label="Manage Sponsors" {...a11yProps(0)} />
-                    <Tab className={classes.tabHead} label="Manage Candidates" {...a11yProps(1)} />
-                    <Tab className={classes.tabHead} label="Manage Donations" {...a11yProps(2)} />
-                </Tabs>
-            </AppBar>
-            <SwipeableViews
-                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                index={value}
-                onChangeIndex={handleChangeIndex}
-            >
-                <TabPanel value={value} index={0} dir={theme.direction}>
-                    <ManageSponsors />
-                </TabPanel>
-                <TabPanel value={value} index={1} dir={theme.direction}>
-                    <ManageCandidates/>
-                </TabPanel>
-                <TabPanel value={value} index={2} dir={theme.direction}>
-                    <ManageDonations/>
-                </TabPanel>
-            </SwipeableViews>
-        </div>
-    );
+                    <TabPanel value={value} index={0} dir={theme.direction}>
+                        <ManageSponsors />
+                    </TabPanel>
+                    <TabPanel value={value} index={1} dir={theme.direction}>
+                        <ManageCandidates/>
+                    </TabPanel>
+                    <TabPanel value={value} index={2} dir={theme.direction}>
+                        <ManageDonations/>
+                    </TabPanel>
+                </SwipeableViews>
+            </div>
+        );
+    }
+
+
 }
+
+export default connect(null, {fetchSponsors})(withTheme(withStyles(styles)(AddressBook)));

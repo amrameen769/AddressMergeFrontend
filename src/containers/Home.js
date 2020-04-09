@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import Launcher from "./Launcher";
-import Alerts from "./alerts/Alerts";
-
 // import bg_home from "./images/bg_home.jpg";
 
 class Home extends Component {
@@ -9,11 +7,12 @@ class Home extends Component {
         return (
             <React.Fragment>
                 {/*<div style={{backgroundImage: `url(${bg_home})`}}>*/}
-                <div>
-                    <Launcher/>
-                </div>
+                    <div>
+                        <Launcher/>
+                    </div>
+                {/*</div>*/}
             </React.Fragment>
-        );
+        )
     }
 }
 

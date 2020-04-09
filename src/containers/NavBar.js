@@ -249,6 +249,11 @@ class NavBar extends Component {
                         </Paper>
                         <div className={classes.root}/>
                         {isAuthenticated && (
+                            <Typography>
+                                Welcome {user.first_name}
+                            </Typography>
+                        )}
+                        {isAuthenticated && (
                             <div>
                                 <IconButton
                                     edge={"end"}

@@ -30,9 +30,9 @@ const theme = createMuiTheme({
 
 //Alert Options
 const alertOptions = {
-    timeout: 3000,
+    timeout: 2000,
     transition: 'fade',
-    position: 'middle right',
+    position: 'middle',
     containerStyle: {
         fontSize: '12px'
     }

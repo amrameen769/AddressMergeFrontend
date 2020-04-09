@@ -6,7 +6,7 @@ const initialState = {
         status: null
     },
     notification: {
-        msg: [],
+        msg: {},
         type: null
     },
 };
@@ -16,26 +16,30 @@ export const slice = createSlice({
     initialState: initialState,
     reducers: {
         getNotifications: (state, action) => {
-            state.notification.msg = action.payload.msg;
-            state.notification.type = action.payload.type;
+            state.notification = action.payload;
+            // state.notification.type = action.payload.type;
         },
         getErrors: (state, action) => {
-            state.error.msg = action.payload.msg;
-            state.error.status = action.payload.status;
+            state.error = action.payload;
         }
     }
 });
 
 export const {getNotifications, getErrors} = slice.actions;
 
-export function createMessage(message, type){
+export function createMessage(message, type) {
     return {
         msg: message,
         type: type
     };
 }
 
-export function returnErrors(message, status){
+export const sendMessage = (message, type) => (dispatch) => {
+    console.log(message, type);
+    dispatch(getNotifications(createMessage(message, type)));
+};
+
+export function returnErrors(message, status) {
     return {
         msg: message,
         status: status

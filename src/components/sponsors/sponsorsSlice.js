@@ -24,7 +24,7 @@ export const {getSponsors, addSponsor} = slice.actions;
 export const fetchSponsors = () => (dispatch) => {
     axios.get('http://127.0.0.1:8000/api/core/sponsors/')
         .then(result => {
-            dispatch(getNotifications(createMessage("Sponsors Loaded", "success")));
+            dispatch(getNotifications(createMessage("Sponsors Loaded", "info")));
             dispatch(getSponsors(result.data))
         })
         .catch(error => {
