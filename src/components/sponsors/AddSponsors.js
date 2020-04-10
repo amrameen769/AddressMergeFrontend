@@ -12,6 +12,8 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import AddCategory from "../misc/AddCategory";
+import {createSponsor, createSponsorGroup, fetchSponsorGroups} from "./sponsorsSlice";
+import PropTypes from 'prop-types';
 
 class AddSponsors extends Component {
     state = {
@@ -48,7 +50,7 @@ class AddSponsors extends Component {
             zip,
             sponsorGroup
         };
-        console.log(sponsor);
+        this.props.createSponsor(sponsor);
         this.setState({
             firstName: "",
             lastName: "",
@@ -69,8 +71,12 @@ class AddSponsors extends Component {
         })
     };
 
+    componentDidMount() {
+        this.props.fetchSponsorGroups();
+    }
+
     render() {
-        const {classes} = this.props;
+        const {classes, sponsorGroups} = this.props;
         const {firstName, lastName, email, phoneNo, address, country, region, city, zip, sponsorGroup} = this.state;
         return (
             <Container className={classes.root}>
@@ -228,16 +234,15 @@ class AddSponsors extends Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={1}>Ten</MenuItem>
-                                    <MenuItem value={2}>Twenty</MenuItem>
-                                    <MenuItem value={3}>Thirty</MenuItem>
+                                    {sponsorGroups.map(group => (
+                                        <MenuItem key={group.id} value={group.id}>{group.groupName}</MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </Grid>
                         <Grid item>
-                            <AddCategory name={"sponsor-group"} action={"Add Sponsor Group"} method={(data) => {
-                                console.log(data)
-                            }}/>
+                            <AddCategory name={"sponsor-group"} action={"Add Sponsor Group"}
+                                         method={this.props.createSponsorGroup}/>
                         </Grid>
                     </Grid>
                     <FormControl className={classes.saveButton}>
@@ -268,4 +273,18 @@ const styles = theme => ({
     }
 });
 
-export default connect(null, {})(withStyles(styles)(AddSponsors));
+AddSponsors.propTypes = {
+    createSponsorGroup: PropTypes.func.isRequired,
+    createSponsor: PropTypes.func.isRequired,
+    sponsorGroups: PropTypes.array
+};
+
+const mapStateToProps = state => ({
+    sponsorGroups: state.sponsors.sponsorGroups
+});
+
+export default connect(mapStateToProps, {
+    createSponsor,
+    createSponsorGroup,
+    fetchSponsorGroups
+})(withStyles(styles)(AddSponsors));

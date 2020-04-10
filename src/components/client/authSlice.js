@@ -75,7 +75,7 @@ export const loadUser = () => (dispatch, getState) => {
             dispatch(authError());
             if (error.response)
                 dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
-            else dispatch(getNotifications(createMessage("Loading User Error", "warning")))
+            else dispatch(getNotifications(createMessage("Can't Load User, Network Error", "warning")))
         })
 };
 
@@ -109,7 +109,9 @@ export const logoutUser = () => (dispatch, getState) => {
             dispatch(getNotifications(createMessage("Logged out Successfully", "success")))
         })
         .catch(error => {
-            dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            if(error.response)
+                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Logout Error, Check your Network", "warning")))
         })
 };
 

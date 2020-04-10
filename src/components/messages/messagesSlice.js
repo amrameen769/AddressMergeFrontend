@@ -1,14 +1,8 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-    error: {
-        msg: {},
-        status: null
-    },
-    notification: {
-        msg: {},
-        type: null
-    },
+    error: {},
+    notification: {},
 };
 
 export const slice = createSlice({
