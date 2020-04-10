@@ -5,7 +5,8 @@ import {tokenConfig} from "../client/authSlice";
 
 const initialState = {
     sponsors: [],
-    sponsorGroups: []
+    sponsorGroups: [],
+    editData: null
 };
 
 export const slice = createSlice({
@@ -24,6 +25,17 @@ export const slice = createSlice({
         addSponsorGroup: (state, action) => {
             state.sponsorGroups.push(action.payload);
         },
+        editSponsor: (state, action) => {
+            state.editData = action.payload
+        },
+        updateSponsor: (state) => {
+            state.editData = null
+        },
+        deleteSponsor: (state, action) => {
+            state.sponsors = state.sponsors.filter(
+                sponsor => sponsor.id !== action.payload
+            )
+        },
         flushSponsors: (state) => {
             state.sponsors = [];
             state.sponsorGroups = [];
@@ -31,9 +43,8 @@ export const slice = createSlice({
     }
 });
 
-export const {getSponsors, addSponsor, flushSponsors, getSponsorGroups, addSponsorGroup} = slice.actions;
+export const {getSponsors, addSponsor, flushSponsors, getSponsorGroups, addSponsorGroup, deleteSponsor, editSponsor, updateSponsor} = slice.actions;
 
-//Fetch Sponsors
 export const fetchSponsors = () => (dispatch) => {
     axios.get('http://127.0.0.1:8000/api/core/sponsors/')
         .then(result => {
@@ -83,5 +94,40 @@ export const createSponsorGroup = (sponsorGroup) => (dispatch, getState) => {
             else dispatch(getNotifications(createMessage("Network Error", "warning")))
         })
 }
+
+//Edit Sponsor
+export const editThisSponsor = (rowData) => (dispatch) => {
+    const {id, firstName, lastName, email, phoneNo, address, country, region, city, zip, owner, sponsorGroup} = rowData;
+    const sponsor = {id, firstName, lastName, email, phoneNo, address, country, region, city, zip, owner, sponsorGroup};
+    dispatch(editSponsor(sponsor));
+}
+
+//Update Sponsor
+export const updateThisSponsor = (sponsor) => (dispatch, getState) => {
+    axios.put(`http://127.0.0.1:8000/api/core/sponsors/${sponsor.id}/`, sponsor, tokenConfig(getState))
+        .then(result=> {
+            dispatch(fetchSponsors());
+            dispatch(updateSponsor());
+            dispatch(getNotifications(createMessage("Sponsor Updated", "success")));
+        })
+        .catch(error => {
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Network Error", "warning")))
+        })
+}
+
+//Delete Sponsor
+export const removeSponsor = id => (dispatch, getState) => {
+    axios
+        .delete(`http://127.0.0.1:8000/api/core/sponsors/${id}/`, tokenConfig(getState))
+        .then(result => {
+            dispatch(deleteSponsor(id));
+            dispatch(getNotifications(createMessage("Sponsor Deleted", "success")));
+        })
+        .catch(error => {
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Network Error", "warning")));
+        });
+};
 
 export default slice.reducer;

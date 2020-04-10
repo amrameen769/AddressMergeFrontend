@@ -12,8 +12,11 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import AddCategory from "../misc/AddCategory";
-import {createSponsor, createSponsorGroup, fetchSponsorGroups} from "./sponsorsSlice";
+import {createSponsor, createSponsorGroup, fetchSponsorGroups, updateThisSponsor, updateSponsor} from "./sponsorsSlice";
 import PropTypes from 'prop-types';
+import {sendMessage} from "../messages/messagesSlice";
+import store from "../../app/store";
+import ClearAllIcon from '@material-ui/icons/ClearAll';
 
 class AddSponsors extends Component {
     state = {
@@ -37,20 +40,44 @@ class AddSponsors extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const {firstName, lastName, email, phoneNo, address, country, region, city, zip, sponsorGroup} = this.state;
-        const sponsor = {
-            firstName,
-            lastName,
-            email,
-            phoneNo,
-            address,
-            country,
-            region,
-            city,
-            zip,
-            sponsorGroup
-        };
-        this.props.createSponsor(sponsor);
+        if (this.props.editData) {
+            const {id, owner} = this.props.editData;
+            if (this.props.user.id === owner) {
+                const {firstName, lastName, email, phoneNo, address, country, region, city, zip, sponsorGroup} = this.state;
+                const sponsor = {
+                    id,
+                    firstName,
+                    lastName,
+                    email,
+                    phoneNo,
+                    address,
+                    country,
+                    region,
+                    city,
+                    zip,
+                    sponsorGroup
+                };
+                this.props.updateThisSponsor(sponsor);
+            } else {
+                this.props.sendMessage("You Are not Authenticated");
+            }
+        } else {
+            const {firstName, lastName, email, phoneNo, address, country, region, city, zip, sponsorGroup} = this.state;
+            const sponsor = {
+                firstName,
+                lastName,
+                email,
+                phoneNo,
+                address,
+                country,
+                region,
+                city,
+                zip,
+                sponsorGroup
+            };
+            this.props.createSponsor(sponsor);
+        }
+
         this.setState({
             firstName: "",
             lastName: "",
@@ -75,13 +102,47 @@ class AddSponsors extends Component {
         this.props.fetchSponsorGroups();
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.editData && prevProps.editData !== this.props.editData) {
+            const {firstName, lastName, email, phoneNo, address, country, region, city, zip, sponsorGroup} = this.props.editData;
+            this.setState({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNo: phoneNo,
+                address: address,
+                country: country,
+                region: region,
+                city: city,
+                zip: zip,
+                sponsorGroup: sponsorGroup
+            })
+        }
+    }
+
+    handleReset = (event) => {
+        this.setState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNo: "",
+            address: "",
+            country: "",
+            region: "",
+            city: "",
+            zip: "",
+            sponsorGroup: ""
+        });
+        store.dispatch(updateSponsor())
+    }
+
     render() {
         const {classes, sponsorGroups} = this.props;
         const {firstName, lastName, email, phoneNo, address, country, region, city, zip, sponsorGroup} = this.state;
         return (
             <Container className={classes.root}>
-                <h2>Add Sponsors</h2>
-                <form onSubmit={this.handleSubmit} noValidate={true}>
+                {this.props.editData ? (<h2>Edit Sponsors</h2>) : (<h2>Add Sponsors</h2>)}
+                <form onReset={this.handleReset} onSubmit={this.handleSubmit} noValidate={true}>
                     <Grid container spacing={2} direction={"row"} justify={"center"} alignItems={"center"}>
                         <Grid item xs={12} xl={6}>
                             <FormControl fullWidth>
@@ -250,6 +311,13 @@ class AddSponsors extends Component {
                             Save
                         </Button>
                     </FormControl>
+                    {this.props.editData && (
+                        <FormControl className={classes.saveButton}>
+                            <Button startIcon={<ClearAllIcon/>} type={"reset"} color={"secondary"} variant={"contained"}>
+                                Clear
+                            </Button>
+                        </FormControl>
+                    )}
                 </form>
             </Container>
         );
@@ -276,15 +344,22 @@ const styles = theme => ({
 AddSponsors.propTypes = {
     createSponsorGroup: PropTypes.func.isRequired,
     createSponsor: PropTypes.func.isRequired,
-    sponsorGroups: PropTypes.array
+    sponsorGroups: PropTypes.array,
+    editData: PropTypes.object,
+    sendMessage: PropTypes.func.isRequired,
+    fetchSponsorGroups: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-    sponsorGroups: state.sponsors.sponsorGroups
+    user: state.auth.user,
+    sponsorGroups: state.sponsors.sponsorGroups,
+    editData: state.sponsors.editData,
 });
 
 export default connect(mapStateToProps, {
     createSponsor,
     createSponsorGroup,
-    fetchSponsorGroups
+    fetchSponsorGroups,
+    updateThisSponsor,
+    sendMessage
 })(withStyles(styles)(AddSponsors));

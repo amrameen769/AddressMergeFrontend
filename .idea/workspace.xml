@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/actionTypes.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/client/authSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/authSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/messages/messagesSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/messages/messagesSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/misc/MaterialTableUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/MaterialTableUI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/misc/utility.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/utility.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sponsors/AddSponsors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sponsors/AddSponsors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sponsors/ListSponsors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sponsors/ListSponsors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sponsors/sponsorsSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sponsors/sponsorsSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/BackToTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/BackToTop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/alerts/Alerts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/alerts/Alerts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +40,12 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -52,23 +56,23 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\donations" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\temp" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts\OpenSans" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\editor" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\images" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts\Comfortaa" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\sponsors" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\donations" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\temp" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -123,7 +127,13 @@
       <workItem from="1586434422763" duration="12005000" />
       <workItem from="1586447473658" duration="54000" />
       <workItem from="1586449224278" duration="3471000" />
-      <workItem from="1586506960091" duration="5885000" />
+      <workItem from="1586506960091" duration="5928000" />
+      <workItem from="1586514747351" duration="451000" />
+      <workItem from="1586515337819" duration="368000" />
+      <workItem from="1586515770881" duration="294000" />
+      <workItem from="1586516132170" duration="896000" />
+      <workItem from="1586518274523" duration="189000" />
+      <workItem from="1586518556771" duration="11932000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -223,24 +233,30 @@
       <option name="project" value="LOCAL" />
       <updated>1586452671568</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Actions Added v0.2">
+      <created>1586513811854</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1586513811855</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -254,14 +270,18 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="0" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585204454014" />
+    <state x="640" y="260" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1586514791836">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="640" y="260" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586514791836" />
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586183764652">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586183764652" />
-    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1586452669984">
+    <state x="103" y="41" key="CommitChangelistDialog2" timestamp="1586513810516">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586452669984" />
+    <state x="103" y="41" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586513810516" />
     <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1585900905029">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -270,26 +290,30 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="914" height="266" key="GridCell.Tab.0.bottom" timestamp="1586510640887">
+    <state width="928" height="274" key="GridCell.Tab.0.bottom" timestamp="1586525608376">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586510640887" />
-    <state width="914" height="266" key="GridCell.Tab.0.center" timestamp="1586510640887">
+    <state width="928" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586525608376" />
+    <state width="928" height="274" key="GridCell.Tab.0.center" timestamp="1586525608376">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586510640887" />
-    <state width="914" height="266" key="GridCell.Tab.0.left" timestamp="1586510640886">
+    <state width="928" height="274" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586525608376" />
+    <state width="928" height="274" key="GridCell.Tab.0.left" timestamp="1586525608376">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586510640886" />
-    <state width="914" height="266" key="GridCell.Tab.0.right" timestamp="1586510640887">
+    <state width="928" height="274" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586525608376" />
+    <state width="928" height="274" key="GridCell.Tab.0.right" timestamp="1586525608376">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="914" height="266" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586510640887" />
-    <state x="446" y="232" key="SettingsEditor" timestamp="1585919315037">
+    <state width="928" height="274" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586525608376" />
+    <state x="540" y="259" key="IDE.errors.dialog" timestamp="1586516834479">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="446" y="232" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585919315037" />
+    <state x="540" y="259" key="IDE.errors.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586516834479" />
+    <state x="347" y="300" key="SettingsEditor" timestamp="1586519601020">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="347" y="300" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586519601020" />
     <state x="72" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586452655185">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

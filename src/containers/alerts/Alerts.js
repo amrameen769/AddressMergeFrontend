@@ -14,8 +14,8 @@ class Alerts extends Component {
 
         if (error !== prevProps.error) {
             if (error.msg.non_field_errors) alert.error(error.msg.non_field_errors.join('\n'));
-            if (error.msg.phoneNo) alert.error(error.msg.phoneNo.join('\n'));
-            if (error.msg.email) alert.error(error.msg.email.join('\n'));
+            if (error.msg.phoneNo) alert.error("Phone No: " + error.msg.phoneNo.join('\n'));
+            if (error.msg.email) alert.error("Email: " + error.msg.email.join('\n'));
         }
 
     }

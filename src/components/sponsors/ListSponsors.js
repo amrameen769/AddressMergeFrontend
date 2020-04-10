@@ -4,6 +4,7 @@ import {Checkbox} from "@material-ui/core";
 import MaterialTableUI from "../misc/MaterialTableUI";
 import PropTypes from 'prop-types';
 import {returnArrayData} from "../misc/utility";
+import {removeSponsor, editThisSponsor} from "./sponsorsSlice";
 
 const columns = [
     {
@@ -67,18 +68,20 @@ class ListSponsors extends Component {
         return (
             <div>
                 <h2>Sponsors</h2>
-                <MaterialTableUI columns={columns} data={rows} title={"Sponsors Table"}/>
+                <MaterialTableUI columns={columns} data={rows} title={"Sponsors Table"} editMethod={this.props.editThisSponsor} deleteMethod={this.props.deleteSponsor}/>
             </div>
         );
     }
 }
 
 ListSponsors.propTypes = {
-    sponsors: PropTypes.array.isRequired
+    sponsors: PropTypes.array.isRequired,
+    removeSponsor: PropTypes.func.isRequired,
+    editThisSponsor: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
     sponsors: state.sponsors.sponsors
 });
 
-export default connect(mapStateToProps)(ListSponsors);
+export default connect(mapStateToProps,{removeSponsor, editThisSponsor})(ListSponsors);

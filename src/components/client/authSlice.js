@@ -73,8 +73,7 @@ export const loadUser = () => (dispatch, getState) => {
         })
         .catch(error => {
             dispatch(authError());
-            if (error.response)
-                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
             else dispatch(getNotifications(createMessage("Can't Load User, Network Error", "warning")))
         })
 };
@@ -94,8 +93,7 @@ export const loginUser = (username, password) => dispatch => {
         })
         .catch(error => {
             dispatch(authError());
-            if (error.response)
-                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
             else dispatch(getNotifications(createMessage("Login Error, Check your Network", "warning")))
         })
 };
@@ -109,8 +107,7 @@ export const logoutUser = () => (dispatch, getState) => {
             dispatch(getNotifications(createMessage("Logged out Successfully", "success")))
         })
         .catch(error => {
-            if(error.response)
-                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
             else dispatch(getNotifications(createMessage("Logout Error, Check your Network", "warning")))
         })
 };
@@ -130,8 +127,7 @@ export const registerUser = (username, password, first_name, last_name, email) =
         })
         .catch(error => {
             dispatch(authError());
-            if (error.response)
-                dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
             else dispatch(getNotifications(createMessage("Register Error, Check your Network", "warning")))
         })
 };
