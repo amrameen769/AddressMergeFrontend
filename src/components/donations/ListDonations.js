@@ -3,6 +3,7 @@ import MaterialTableUI from "../misc/MaterialTableUI";
 import {connect} from 'react-redux';
 import {returnArrayData} from "../misc/utility";
 import {editThisDonation, removeDonation} from "./donationsSlice";
+import PropTypes from 'prop-types';
 
 const columns = [
     {
@@ -50,5 +51,11 @@ const ListDonations = (props) => {
 const mapStateToProps = state => ({
     donations: state.donations.donations
 })
+
+ListDonations.propTypes = {
+    donations: PropTypes.array.isRequired,
+    removeDonation: PropTypes.func.isRequired,
+    editThisDonation: PropTypes.func.isRequired
+}
 
 export default connect(mapStateToProps, {removeDonation, editThisDonation})(ListDonations);

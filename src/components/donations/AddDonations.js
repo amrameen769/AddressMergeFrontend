@@ -15,6 +15,7 @@ import {connect} from "react-redux";
 import {createDonation, flushEditDonationData, updateThisDonation} from "./donationsSlice";
 import {sendMessage} from "../messages/messagesSlice";
 import ClearAllIcon from "@material-ui/icons/ClearAll";
+import PropTypes from "prop-types";
 import store from "../../app/store";
 
 let isEqual = require('lodash.isequal');
@@ -259,12 +260,22 @@ const styles = theme => ({
     }
 });
 
+AddDonations.propTypes = {
+    candidates: PropTypes.array.isRequired,
+    sponsors: PropTypes.array.isRequired,
+    user: PropTypes.object.isRequired,
+    createDonation: PropTypes.func.isRequired,
+    updateThisDonation: PropTypes.func.isRequired,
+    flushEditDonationData: PropTypes.func.isRequired,
+}
+
 const mapStateToProps = state => ({
     candidates: state.candidates.candidates.map(candidate => returnCandidateObjects(candidate)),
     sponsors: state.sponsors.sponsors.map(sponsor => returnSponsorObjects(sponsor)),
     editDonationData: state.donations.editDonationData,
     user: state.auth.user
 })
+
 export default connect(mapStateToProps, {
     createDonation,
     updateThisDonation,
