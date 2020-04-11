@@ -12,7 +12,8 @@ import ManageCandidates from "../components/candidates/ManageCandidates";
 import ManageDonations from "../components/donations/ManageDonations";
 import {fetchSponsors} from "../components/sponsors/sponsorsSlice";
 import {connect} from "react-redux";
-import { withTheme } from '@material-ui/core/styles';
+import {withTheme} from '@material-ui/core/styles';
+import {fetchCandidates} from "../components/candidates/candidateSlice";
 
 
 function TabPanel(props) {
@@ -55,9 +56,9 @@ const styles = theme => ({
     }
 });
 
-class AddressBook extends Component{
+class AddressBook extends Component {
     state = {
-        value: 0
+        value: 1
     };
 
     handleChange = (event, newValue) => {
@@ -73,7 +74,8 @@ class AddressBook extends Component{
     };
 
     componentDidMount() {
-        this.props.fetchSponsors()
+        this.props.fetchSponsors();
+        this.props.fetchCandidates();
     }
 
     render() {
@@ -102,7 +104,7 @@ class AddressBook extends Component{
                     onChangeIndex={this.handleChangeIndex}
                 >
                     <TabPanel value={value} index={0} dir={theme.direction}>
-                        <ManageSponsors />
+                        <ManageSponsors/>
                     </TabPanel>
                     <TabPanel value={value} index={1} dir={theme.direction}>
                         <ManageCandidates/>
@@ -118,4 +120,4 @@ class AddressBook extends Component{
 
 }
 
-export default connect(null, {fetchSponsors})(withTheme(withStyles(styles)(AddressBook)));
+export default connect(null, {fetchSponsors, fetchCandidates})(withTheme(withStyles(styles)(AddressBook)));

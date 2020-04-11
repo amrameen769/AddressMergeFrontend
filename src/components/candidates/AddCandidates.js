@@ -12,6 +12,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import AddCategory from "../misc/AddCategory";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
+import {returnSponsorObjects} from "../misc/utility";
+import {createCandidate, createCandidateCategory, updateThisCandidate, flushEditCandidate} from './candidateSlice';
+import store from "../../app/store";
+import {sendMessage} from "../messages/messagesSlice";
+import ClearAllIcon from "@material-ui/icons/ClearAll";
+import PropTypes from "prop-types";
+
+const isEqual = require("lodash.isequal");
 
 class AddCandidates extends Component {
     state = {
@@ -38,21 +46,65 @@ class AddCandidates extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const {firstName, lastName, email, phoneNo, address, country, region, city, zip, candidateCategory, sponsor} = this.state;
-        const candidate = {
-            firstName,
-            lastName,
-            email,
-            phoneNo,
-            address,
-            country,
-            region,
-            city,
-            zip,
-            candidateCategory,
-            sponsor
-        };
-        console.log(candidate);
+        if (this.props.editCandidateData) {
+            const {id, owner, firstName, lastName, email, phoneNo, address, country, region, city, zip, candidateCategory, sponsor} = this.props.editCandidateData;
+            const editCandidateData = {
+                id,
+                firstName,
+                lastName,
+                email,
+                phoneNo,
+                address,
+                country,
+                region,
+                city,
+                zip,
+                candidateCategory,
+                sponsor
+            };
+            if (this.props.user.id === owner) {
+                const {firstName, lastName, email, phoneNo, address, country, region, city, zip, candidateCategory, sponsor} = this.state;
+                const candidate = {
+                    id,
+                    firstName,
+                    lastName,
+                    email,
+                    phoneNo,
+                    address,
+                    country,
+                    region,
+                    city,
+                    zip,
+                    candidateCategory,
+                    sponsor
+                };
+
+                if (isEqual(editCandidateData, candidate)) {
+                    this.props.sendMessage("Can't Update Same Data", "info");
+                } else {
+                    this.props.updateThisCandidate(candidate);
+                }
+            } else {
+                this.props.sendMessage("You are not authenticated for this Action", "warning")
+            }
+
+        } else {
+            const {firstName, lastName, email, phoneNo, address, country, region, city, zip, candidateCategory, sponsor} = this.state;
+            const candidate = {
+                firstName,
+                lastName,
+                email,
+                phoneNo,
+                address,
+                country,
+                region,
+                city,
+                zip,
+                candidateCategory,
+                sponsor
+            };
+            this.props.createCandidate(candidate);
+        }
         this.setState({
             firstName: "",
             lastName: "",
@@ -68,19 +120,55 @@ class AddCandidates extends Component {
         })
     };
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.editCandidateData && prevProps.editCandidateData !== this.props.editCandidateData) {
+            const {firstName, lastName, email, phoneNo, address, country, region, city, zip, candidateCategory, sponsor} = this.props.editCandidateData;
+            this.setState({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNo: phoneNo,
+                address: address,
+                country: country,
+                region: region,
+                city: city,
+                zip: zip,
+                candidateCategory: candidateCategory,
+                sponsor: sponsor
+            })
+        }
+    }
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     };
 
+    handleReset = () => {
+        this.setState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNo: "",
+            address: "",
+            country: "",
+            region: "",
+            city: "",
+            zip: "",
+            candidateCategory: "",
+            sponsor: ""
+        });
+        store.dispatch(flushEditCandidate());
+    }
+
     render() {
         const {classes} = this.props;
         const {firstName, lastName, email, phoneNo, address, country, region, city, zip, candidateCategory, sponsor} = this.state;
         return (
             <Container className={classes.root}>
-                <h2>Add Candidates</h2>
-                <form onSubmit={this.handleSubmit} noValidate={true}>
+                {this.props.editCandidateData ? (<h2>Edit Candidate</h2>) : (<h2>Add Candidates</h2>)}
+                <form onReset={this.handleReset} onSubmit={this.handleSubmit} noValidate={true}>
                     <Grid container spacing={2} direction={"row"} justify={"center"} alignItems={"center"}>
                         <Grid item xs={12} xl={6}>
                             <FormControl fullWidth>
@@ -235,17 +323,16 @@ class AddCandidates extends Component {
                                         <MenuItem value="">
                                             <em>None</em>
                                         </MenuItem>
-                                        <MenuItem value={1}>Ten</MenuItem>
-                                        <MenuItem value={2}>Twenty</MenuItem>
-                                        <MenuItem value={3}>Thirty</MenuItem>
+                                        {this.props.candidateCategory.map(category => (
+                                            <MenuItem key={category.id}
+                                                      value={category.id}>{category.categoryName}</MenuItem>
+                                        ))}
                                     </Select>
                                 </FormControl>
                             </Grid>
                             <Grid item xl={2} xs={2}>
                                 <AddCategory name={"candidate-category"} action={"Add Candidate Category"}
-                                             method={(data) => {
-                                                 console.log(data)
-                                             }}/>
+                                             method={this.props.createCandidateCategory}/>
                             </Grid>
                         </Grid>
                         <Grid item xl={6} xs={12}>
@@ -261,9 +348,9 @@ class AddCandidates extends Component {
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
-                                    <MenuItem value={1}>Ten</MenuItem>
-                                    <MenuItem value={2}>Twenty</MenuItem>
-                                    <MenuItem value={3}>Thirty</MenuItem>
+                                    {this.props.sponsors.map(sponsor => (
+                                        <MenuItem key={sponsor.id} value={sponsor.id}>{sponsor.name}</MenuItem>
+                                    ))}
                                 </Select>
                             </FormControl>
                         </Grid>
@@ -273,6 +360,14 @@ class AddCandidates extends Component {
                             Save
                         </Button>
                     </FormControl>
+                    {this.props.editCandidateData && (
+                        <FormControl className={classes.saveButton}>
+                            <Button startIcon={<ClearAllIcon/>} type={"reset"} color={"secondary"}
+                                    variant={"contained"}>
+                                Clear
+                            </Button>
+                        </FormControl>
+                    )}
                 </form>
             </Container>
         );
@@ -296,4 +391,25 @@ const styles = theme => ({
     }
 });
 
-export default connect(null, {})(withStyles(styles)(AddCandidates));
+AddCandidates.propTypes = {
+    sponsors: PropTypes.array.isRequired,
+    candidateCategory: PropTypes.array,
+    createCandidateCategory: PropTypes.func.isRequired,
+    createCandidate: PropTypes.func.isRequired,
+    updateThisCandidate: PropTypes.func.isRequired,
+    sendMessage: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    sponsors: state.sponsors.sponsors.map(sponsor => returnSponsorObjects(sponsor)),
+    candidateCategory: state.candidates.candidateCategory,
+    editCandidateData: state.candidates.editCandidateData,
+    user: state.auth.user,
+})
+
+export default connect(mapStateToProps, {
+    createCandidateCategory,
+    createCandidate,
+    updateThisCandidate,
+    sendMessage
+})(withStyles(styles)(AddCandidates));

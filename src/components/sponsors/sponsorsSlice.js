@@ -6,7 +6,7 @@ import {tokenConfig} from "../client/authSlice";
 const initialState = {
     sponsors: [],
     sponsorGroups: [],
-    editData: null
+    editSponsorData: null
 };
 
 export const slice = createSlice({
@@ -26,10 +26,15 @@ export const slice = createSlice({
             state.sponsorGroups.push(action.payload);
         },
         editSponsor: (state, action) => {
-            state.editData = action.payload
+            state.editSponsorData = action.payload
         },
-        updateSponsor: (state) => {
-            state.editData = null
+        flushEditSponsor: (state) => {
+            state.editSponsorData = null
+        },
+        updateSponsor: (state, action) => {
+            state.editSponsorData = null;
+            const sponsorIndex = state.sponsors.findIndex(sponsor => sponsor.id === action.payload.id);
+            state.sponsors[sponsorIndex] = action.payload
         },
         deleteSponsor: (state, action) => {
             state.sponsors = state.sponsors.filter(
@@ -39,17 +44,19 @@ export const slice = createSlice({
         flushSponsors: (state) => {
             state.sponsors = [];
             state.sponsorGroups = [];
+            state.editSponsorData = null;
         }
     }
 });
 
-export const {getSponsors, addSponsor, flushSponsors, getSponsorGroups, addSponsorGroup, deleteSponsor, editSponsor, updateSponsor} = slice.actions;
+export const {getSponsors, addSponsor, flushSponsors, getSponsorGroups, addSponsorGroup, deleteSponsor, editSponsor, updateSponsor, flushEditSponsor} = slice.actions;
 
 export const fetchSponsors = () => (dispatch) => {
     axios.get('http://127.0.0.1:8000/api/core/sponsors/')
         .then(result => {
             dispatch(getNotifications(createMessage("Sponsors Loaded", "info")));
-            dispatch(getSponsors(result.data))
+            dispatch(fetchSponsorGroups());
+            dispatch(getSponsors(result.data));
         })
         .catch(error => {
             dispatch(getNotifications(createMessage("Network Connection Unstable", "warning")));
@@ -105,9 +112,9 @@ export const editThisSponsor = (rowData) => (dispatch) => {
 //Update Sponsor
 export const updateThisSponsor = (sponsor) => (dispatch, getState) => {
     axios.put(`http://127.0.0.1:8000/api/core/sponsors/${sponsor.id}/`, sponsor, tokenConfig(getState))
-        .then(result=> {
-            dispatch(fetchSponsors());
-            dispatch(updateSponsor());
+        .then(result => {
+            // dispatch(fetchSponsors());
+            dispatch(updateSponsor(result.data));
             dispatch(getNotifications(createMessage("Sponsor Updated", "success")));
         })
         .catch(error => {

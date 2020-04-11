@@ -13,3 +13,11 @@ export const handleBackClick = event => {
         anchor.scrollIntoView({behavior: 'smooth', block: 'center'});
     }
 };
+
+
+export function returnSponsorObjects(sponsor) {
+    return {
+        id: sponsor.id,
+        name: sponsor.firstName + " " + sponsor.lastName
+    }
+}

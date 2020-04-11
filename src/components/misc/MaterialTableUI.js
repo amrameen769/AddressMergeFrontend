@@ -31,7 +31,6 @@ function MaterialTableUI(props) {
                         icon: "delete",
                         tooltip: "Delete",
                         onClick: (event, rowData) => {
-                            console.log("Delete " + rowData.id)
                             deleteMethod(rowData.id);
                         },
                         disabled: rowData.owner !== user.id
@@ -40,7 +39,7 @@ function MaterialTableUI(props) {
             />
         </Container>
     );
-};
+}
 
 MaterialTableUI.propTypes = {
     user: PropTypes.object.isRequired

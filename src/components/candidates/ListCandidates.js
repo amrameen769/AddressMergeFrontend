@@ -2,32 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Checkbox} from "@material-ui/core";
 import MaterialTableUI from "../misc/MaterialTableUI";
-
-function createCandidateData(id, firstName, lastName, email, phoneNo, address, country, region, city, zip, createdAt, status, candidateCategory, owner, sponsor) {
-    return {
-        id,
-        fullName: firstName + " " + lastName,
-        email,
-        phoneNo,
-        address,
-        country,
-        region,
-        city,
-        zip,
-        createdAt,
-        status,
-        candidateCategory,
-        owner,
-        sponsor
-    }
-}
+import {connect} from "react-redux";
+import {returnArrayData} from "../misc/utility";
+import {editThisCandidate, removeCandidate} from "./candidateSlice";
 
 const columns = [
     {
         field: 'id', title: '#'
     },
     {
-        field: 'fullName', title: 'Name'
+        field: 'fullName', title: 'Name',
+        render: rowData => {
+            return rowData.firstName + ' ' + rowData.lastName;
+        }
     },
     {
         field: 'email',
@@ -62,11 +49,11 @@ const columns = [
         title: 'Created At',
     },
     {
-        field: 'candidateCategory',
+        field: 'candidateCategoryName',
         title: 'Category',
     },
     {
-        field: 'sponsor',
+        field: 'sponsorName',
         title: 'Sponsor Name',
     },
     {
@@ -78,19 +65,26 @@ const columns = [
     }
 ];
 
-const rows = [
-    createCandidateData(1, "Samar", "AR", "samarar@gmail.com", 12456875, "1234 Main Street", "India", "Kerala", "Tvm", "695609", "12:43AM", true, "Student", "amrameen769", "Al Ameen AR"),
-];
-
 const ListCandidates = props => {
+    const {candidates} = props.candidates;
+    const rows = returnArrayData(candidates);
     return (
         <div>
             <h2>Candidates</h2>
-            <MaterialTableUI columns={columns} data={rows} title="Candidates Table"/>
+            <MaterialTableUI columns={columns} data={rows} title="Candidates Table" editMethod={props.editThisCandidate}
+                             deleteMethod={props.removeCandidate}/>
         </div>
     );
 };
 
-ListCandidates.propTypes = {};
+ListCandidates.propTypes = {
+    candidates: PropTypes.object.isRequired,
+    editThisCandidate: PropTypes.func.isRequired,
+    removeCandidate: PropTypes.func.isRequired
+};
 
-export default ListCandidates;
+const mapStateToProps = state => ({
+    candidates: state.candidates
+})
+
+export default connect(mapStateToProps, {removeCandidate, editThisCandidate})(ListCandidates);

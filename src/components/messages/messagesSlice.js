@@ -29,7 +29,6 @@ export function createMessage(message, type) {
 }
 
 export const sendMessage = (message, type) => (dispatch) => {
-    console.log(message, type);
     dispatch(getNotifications(createMessage(message, type)));
 };
 
