@@ -20,7 +20,7 @@ export const slice = createSlice({
             state.sponsorGroups = (action.payload);
         },
         addSponsor: (state, action) => {
-            state.sponsors.push(action.payload);
+            state.sponsors.unshift(action.payload);
         },
         addSponsorGroup: (state, action) => {
             state.sponsorGroups.push(action.payload);

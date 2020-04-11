@@ -16,7 +16,7 @@ export const slice = createSlice({
             state.candidates = action.payload
         },
         addCandidate: (state, action) => {
-            state.candidates.push(action.payload)
+            state.candidates.unshift(action.payload)
         },
         deleteCandidate: (state, action) => {
             state.candidates = state.candidates.filter(candidate => candidate.id !== action.payload)

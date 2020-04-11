@@ -78,7 +78,6 @@ class AddCandidates extends Component {
                     candidateCategory,
                     sponsor
                 };
-
                 if (isEqual(editCandidateData, candidate)) {
                     this.props.sendMessage("Can't Update Same Data", "info");
                 } else {

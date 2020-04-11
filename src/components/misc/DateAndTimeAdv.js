@@ -12,7 +12,7 @@ export default class DateAndTimeAdv extends Component {
         if (props.selectedDate === "") {
             this.state = {
                 selectedDate: new Date()
-            }
+            };
         } else {
             this.state = {
                 selectedDate: props.selectedDate
@@ -27,7 +27,6 @@ export default class DateAndTimeAdv extends Component {
 
     render() {
         let {selectedDate} = this.state;
-
         return (
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <DateTimePicker

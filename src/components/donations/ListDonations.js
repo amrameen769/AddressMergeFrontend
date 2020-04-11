@@ -1,5 +1,8 @@
 import React from 'react';
 import MaterialTableUI from "../misc/MaterialTableUI";
+import {connect} from 'react-redux';
+import {returnArrayData} from "../misc/utility";
+import {editThisDonation, removeDonation} from "./donationsSlice";
 
 const columns = [
     {
@@ -21,33 +24,31 @@ const columns = [
     {
         field: "donationAmount",
         title: "Donation Amount",
+        type: 'numeric'
     },
     {
-        field: "donationBy",
+        field: "donSponsorName",
         title: "Sponsor",
     },
     {
-        field: "donationTo",
+        field: "donCandidateName",
         title: "Candidate",
     }
 ];
 
-function createDonationData(id, donationName, donationDescription, donationDate, donationAmount, donationBy, donationTo) {
-    return {id, donationName, donationDescription, donationDate, donationAmount, donationBy, donationTo};
-}
-
-const rows = [
-    createDonationData(1, "Annual Donation", "Donating from the Foundations of Infosys", "Mon Apr 06 2020 16:14:39 GMT+0530 (India Standard Time)", 36000, "Al Ameen AR", "Samar AR"),
-    createDonationData(2, "Monthly Donation", "Donating from the Foundations of Deloitte", "Mon Apr 06 2020 17:10:39 GMT+0530 (India Standard Time)", 300000, "Gaurav Ganguli", "Samar AR"),
-];
-
 const ListDonations = (props) => {
+    const rows = returnArrayData(props.donations);
     return (
         <div>
             <h2>Donations</h2>
-            <MaterialTableUI columns={columns} data={rows} title="Donations Table"/>
+            <MaterialTableUI columns={columns} data={rows} title="Donations Table" deleteMethod={props.removeDonation}
+                             editMethod={props.editThisDonation}/>
         </div>
     );
 };
 
-export default ListDonations;
+const mapStateToProps = state => ({
+    donations: state.donations.donations
+})
+
+export default connect(mapStateToProps, {removeDonation, editThisDonation})(ListDonations);

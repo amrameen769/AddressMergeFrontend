@@ -21,3 +21,10 @@ export function returnSponsorObjects(sponsor) {
         name: sponsor.firstName + " " + sponsor.lastName
     }
 }
+
+export function returnCandidateObjects(candidate) {
+    return {
+        id: candidate.id,
+        name: candidate.firstName + " " + candidate.lastName
+    }
+}

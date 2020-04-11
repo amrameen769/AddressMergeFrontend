@@ -14,6 +14,7 @@ import {fetchSponsors} from "../components/sponsors/sponsorsSlice";
 import {connect} from "react-redux";
 import {withTheme} from '@material-ui/core/styles';
 import {fetchCandidates} from "../components/candidates/candidateSlice";
+import {fetchDonations} from "../components/donations/donationsSlice";
 
 
 function TabPanel(props) {
@@ -76,6 +77,7 @@ class AddressBook extends Component {
     componentDidMount() {
         this.props.fetchSponsors();
         this.props.fetchCandidates();
+        this.props.fetchDonations();
     }
 
     render() {
@@ -116,8 +118,12 @@ class AddressBook extends Component {
             </div>
         );
     }
-
-
 }
 
-export default connect(null, {fetchSponsors, fetchCandidates})(withTheme(withStyles(styles)(AddressBook)));
+AddressBook.propTypes = {
+    fetchSponsors: PropTypes.func.isRequired,
+    fetchCandidates: PropTypes.func.isRequired,
+    fetchDonations: PropTypes.func.isRequired,
+}
+
+export default connect(null, {fetchSponsors, fetchCandidates, fetchDonations})(withTheme(withStyles(styles)(AddressBook)));
