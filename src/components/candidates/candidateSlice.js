@@ -122,7 +122,7 @@ export const editThisCandidate = (rowData) => (dispatch) => {
 
 // Update Candidate
 export const updateThisCandidate = (candidate) => (dispatch, getState) => {
-    axios.put(`http://127.0.0.1:8000/api/core/candidates/${candidate.id}/`, candidate, tokenConfig(getState))
+    axios.patch(`http://127.0.0.1:8000/api/core/candidates/${candidate.id}/`, candidate, tokenConfig(getState))
         .then(result => {
             dispatch(updateCandidate(result.data));
             dispatch(flushEditCandidate());

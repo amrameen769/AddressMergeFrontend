@@ -111,7 +111,7 @@ export const editThisSponsor = (rowData) => (dispatch) => {
 
 //Update Sponsor
 export const updateThisSponsor = (sponsor) => (dispatch, getState) => {
-    axios.put(`http://127.0.0.1:8000/api/core/sponsors/${sponsor.id}/`, sponsor, tokenConfig(getState))
+    axios.patch(`http://127.0.0.1:8000/api/core/sponsors/${sponsor.id}/`, sponsor, tokenConfig(getState))
         .then(result => {
             // dispatch(fetchSponsors());
             dispatch(updateSponsor(result.data));
