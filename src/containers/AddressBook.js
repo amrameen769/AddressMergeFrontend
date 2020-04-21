@@ -16,7 +16,6 @@ import {withTheme} from '@material-ui/core/styles';
 import {fetchCandidates} from "../components/candidates/candidateSlice";
 import {fetchDonations} from "../components/donations/donationsSlice";
 
-
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
 
@@ -59,7 +58,7 @@ const styles = theme => ({
 
 class AddressBook extends Component {
     state = {
-        value: 1
+        value: 0
     };
 
     handleChange = (event, newValue) => {
@@ -126,4 +125,8 @@ AddressBook.propTypes = {
     fetchDonations: PropTypes.func.isRequired,
 }
 
-export default connect(null, {fetchSponsors, fetchCandidates, fetchDonations})(withTheme(withStyles(styles)(AddressBook)));
+export default connect(null, {
+    fetchSponsors,
+    fetchCandidates,
+    fetchDonations
+})(withTheme(withStyles(styles)(AddressBook)));

@@ -14,12 +14,14 @@ import ResetPassword from "../components/client/ResetPassword";
 import ProfileSettings from "../components/client/ProfileSettings";
 import Alerts from "./alerts/Alerts";
 import PrivateRoute from "./PrivateRoute";
+import CircleSpinner from "../components/misc/CircleSpinner";
 
 export default props => (
     <HashRouter>
         <ScrollToTop>
             <NavBar/>
             <Alerts/>
+            <CircleSpinner />
             <Switch>
                 <Route exact path={"/"} component={Home}/>
                 <Route exact path={"/get-started"} component={GetStarted}/>
