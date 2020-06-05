@@ -32,7 +32,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-swipeable-views": "^0.13.9",
-    "react-variable-fonts": "^1.2.2"
+    "react-variable-fonts": "^1.2.2",
+    "style-loader": "^1.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

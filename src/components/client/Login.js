@@ -108,7 +108,9 @@ class Login extends Component {
 
     render() {
         if (this.props.isAuthenticated) {
-            return <Redirect to={"/address-book"}/>
+            return <Redirect to={"/editor"}/>
+            // return <Redirect to={"/address-book"}/>
+
         }
         const {classes} = this.props;
         const {username} = this.state;

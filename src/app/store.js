@@ -4,6 +4,7 @@ import messagesReducer from '../components/messages/messagesSlice';
 import authReducer from '../components/client/authSlice';
 import candidateReducer from '../components/candidates/candidateSlice';
 import donationsReducer from '../components/donations/donationsSlice';
+import editorReducer from '../components/CKEditor/editorSlice';
 
 export default configureStore({
     reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
         donations: donationsReducer,
         messages: messagesReducer,
         auth: authReducer,
+        editor: editorReducer
     },
 });
