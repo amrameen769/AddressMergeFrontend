@@ -2,7 +2,6 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {createMessage, getErrors, getNotifications, returnErrors} from "../messages/messagesSlice";
 import {tokenConfig} from "../client/authSlice";
-import {editDonation} from "../donations/donationsSlice";
 
 const initialState = {
     documents: "",

@@ -6,7 +6,7 @@ import {createContent, fetchDocuments, editThisContent} from "./editorSlice";
 import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
 import {v4 as uuidv4} from 'uuid';
-import parse from 'html-react-parser';
+// import parse from 'html-react-parser';
 
 
 class CkEditorCustom extends Component {
