@@ -19,16 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="Editor Added v0.3">
-      <change afterPath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" afterDir="false" />
+    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/client/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/editor/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/editor/Editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +177,8 @@
       <workItem from="1590530523648" duration="339000" />
       <workItem from="1591363873859" duration="4534000" />
       <workItem from="1591390631543" duration="126000" />
-      <workItem from="1591390794432" duration="5016000" />
+      <workItem from="1591390794432" duration="5055000" />
+      <workItem from="1591446999296" duration="6020000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -330,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587439763180</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Editor Added v0.3">
+      <created>1591395826023</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1591395826023</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,11 +373,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586183764652" />
-    <state x="103" y="50" width="840" height="879" key="CommitChangelistDialog2" timestamp="1591395789488">
+    <state x="103" y="50" width="840" height="879" key="CommitChangelistDialog2" timestamp="1591395825773">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="103" y="26" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586692557784" />
-    <state x="103" y="50" width="840" height="879" key="CommitChangelistDialog2/0.24.1920.1056@0.24.1920.1056" timestamp="1591395789488" />
+    <state x="103" y="50" width="840" height="879" key="CommitChangelistDialog2/0.24.1920.1056@0.24.1920.1056" timestamp="1591395825773" />
     <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1586790586912">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -382,26 +386,26 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="866" height="277" key="GridCell.Tab.0.bottom" timestamp="1591392156595">
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1591453027697">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="866" height="277" key="GridCell.Tab.0.bottom/0.24.1920.1056@0.24.1920.1056" timestamp="1591392156595" />
-    <state width="866" height="277" key="GridCell.Tab.0.center" timestamp="1591392156595">
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.24.1920.1056@0.24.1920.1056" timestamp="1591453027697" />
+    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1591453027697">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="866" height="277" key="GridCell.Tab.0.center/0.24.1920.1056@0.24.1920.1056" timestamp="1591392156595" />
-    <state width="866" height="277" key="GridCell.Tab.0.left" timestamp="1591392156594">
+    <state width="1876" height="277" key="GridCell.Tab.0.center/0.24.1920.1056@0.24.1920.1056" timestamp="1591453027697" />
+    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1591453027696">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="866" height="277" key="GridCell.Tab.0.left/0.24.1920.1056@0.24.1920.1056" timestamp="1591392156594" />
-    <state width="866" height="277" key="GridCell.Tab.0.right" timestamp="1591392156595">
+    <state width="1876" height="277" key="GridCell.Tab.0.left/0.24.1920.1056@0.24.1920.1056" timestamp="1591453027696" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1591453027697">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="866" height="277" key="GridCell.Tab.0.right/0.24.1920.1056@0.24.1920.1056" timestamp="1591392156595" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right/0.24.1920.1056@0.24.1920.1056" timestamp="1591453027697" />
     <state x="540" y="259" key="IDE.errors.dialog" timestamp="1586516834479">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -415,11 +419,11 @@
     </state>
     <state x="727" y="212" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586790594918" />
     <state x="532" y="179" width="1185" height="730" key="SettingsEditor/0.24.1920.1056@0.24.1920.1056" timestamp="1587490305478" />
-    <state x="72" y="286" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1587439769411">
+    <state x="72" y="286" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1591395833149">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="72" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1586692551695" />
-    <state x="72" y="286" width="800" height="526" key="Vcs.Push.Dialog.v2/0.24.1920.1056@0.24.1920.1056" timestamp="1587439769411" />
+    <state x="72" y="286" width="800" height="526" key="Vcs.Push.Dialog.v2/0.24.1920.1056@0.24.1920.1056" timestamp="1591395833149" />
     <state x="707" y="399" width="496" height="304" key="cloudConfig.PluginsDialog" timestamp="1587439792037">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>

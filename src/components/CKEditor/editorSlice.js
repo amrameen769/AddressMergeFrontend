@@ -2,9 +2,11 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {createMessage, getErrors, getNotifications, returnErrors} from "../messages/messagesSlice";
 import {tokenConfig} from "../client/authSlice";
+import {editDonation} from "../donations/donationsSlice";
 
 const initialState = {
-    content: ""
+    documents: "",
+    editContentData: ""
 }
 
 export const slice = createSlice({
@@ -12,12 +14,18 @@ export const slice = createSlice({
     initialState: initialState,
     reducers: {
         saveContent: (state, action) => {
-            state.content = action.payload;
-        }
+            state.documents.unshift(action.payload);
+        },
+        getDocuments: (state, action) => {
+            state.documents = action.payload;
+        },
+        editContent: (state, action) => {
+            state.editContentData = action.payload
+        },
     }
 })
 
-export const {saveContent} = slice.actions;
+export const {saveContent, getDocuments, editContent} = slice.actions;
 
 export const createContent = document => (dispatch, getState) => {
     axios.post('http://127.0.0.1:8000/api/core/documents/', document, tokenConfig(getState))
@@ -29,6 +37,27 @@ export const createContent = document => (dispatch, getState) => {
             if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
             else dispatch(getNotifications(createMessage("Network Error", "warning")))
         })
+}
+
+
+export const fetchDocuments = () => (dispatch, getState) => {
+    axios.get('http://127.0.0.1:8000/api/core/documents/', tokenConfig(getState))
+        .then(result => {
+            dispatch(getDocuments(result.data));
+            dispatch(getNotifications(createMessage("Documents Loaded", "success")));
+        })
+        .catch(error => {
+            if (error.response) dispatch(getErrors(returnErrors(error.response.data, error.response.status)));
+            else dispatch(getNotifications(createMessage("Network Error", "warning")))
+        })
+}
+
+// Edit Content
+export const editThisContent = (document) => (dispatch) => {
+    const {id, docName, docContent, owner} = document;
+    const editDoc = {id, docName, docContent, owner};
+    // console.log(editDoc);
+    dispatch(editContent(editDoc));
 }
 
 export default slice.reducer;
