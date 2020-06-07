@@ -38,6 +38,11 @@ export default function AddCategory(props) {
                 groupName: document.getElementById(`${name}`).value
             };
             method(category);
+        } else if (name === "document-type") {
+            const type = {
+                typeName: document.getElementById(`${name}`).value
+            };
+            method(type);
         }
         setOpen(false);
     };

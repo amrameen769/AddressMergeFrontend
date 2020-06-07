@@ -1,3 +1,6 @@
+//Constants
+export const apiDataUrl = 'http://127.0.0.1:8000/api/core';
+export const apiAuthUrl = 'http://127.0.0.1:8000/api/clients/auth';
 
 //Create and Return Data Array
 export const returnArrayData = (data) => {

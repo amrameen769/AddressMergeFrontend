@@ -2,6 +2,10 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from 'axios';
 import {returnErrors, getErrors, createMessage, getNotifications} from "../messages/messagesSlice";
 import {flushSponsors} from "../sponsors/sponsorsSlice";
+import {apiAuthUrl} from "../misc/utility";
+import {flushDocuments} from "../CKEditor/editorSlice";
+import {flushCandidates} from "../candidates/candidateSlice";
+import {flushDonations} from "../donations/donationsSlice";
 
 const initialState = {
     token: localStorage.getItem("token"),
@@ -67,7 +71,7 @@ export const tokenConfig = getState => {
 //Load Users
 export const loadUser = () => (dispatch, getState) => {
     dispatch(userLoading());
-    axios.get('http://127.0.0.1:8000/api/clients/auth/client', tokenConfig(getState))
+    axios.get(apiAuthUrl + '/client', tokenConfig(getState))
         .then(result => {
             dispatch(userLoaded(result.data))
         })
@@ -87,7 +91,7 @@ export const loginUser = (username, password) => dispatch => {
     };
 
     const body = JSON.stringify({username, password});
-    axios.post('http://127.0.0.1:8000/api/clients/auth/login', body, config)
+    axios.post(apiAuthUrl + '/login', body, config)
         .then(result => {
             dispatch(loginSuccess(result.data))
         })
@@ -100,10 +104,13 @@ export const loginUser = (username, password) => dispatch => {
 
 //Logout User
 export const logoutUser = () => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/clients/auth/logout', null, tokenConfig(getState))
+    axios.post(apiAuthUrl + '/logout', null, tokenConfig(getState))
         .then(result => {
             dispatch(authError());
             dispatch(flushSponsors());
+            dispatch(flushDocuments());
+            dispatch(flushCandidates());
+            dispatch(flushDonations());
             dispatch(getNotifications(createMessage("Logged out Successfully", "success")))
         })
         .catch(error => {
@@ -121,7 +128,7 @@ export const registerUser = (username, password, first_name, last_name, email) =
     };
 
     const body = JSON.stringify({username, password, first_name, last_name, email});
-    axios.post('http://127.0.0.1:8000/api/clients/auth/register', body, config)
+    axios.post(apiAuthUrl + '/register', body, config)
         .then(result => {
             dispatch(registerSuccess(result.data))
         })

@@ -19,7 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="" />
+    <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="Editor Added &#10;URL Constants Added&#10;v0.3">
+      <change afterPath="$PROJECT_DIR$/src/components/CKEditor/ListDocuments.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CKEditor/SaveDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client/authSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/authSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/misc/AddCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/AddCategory.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +50,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1ZaTxeJkVcxIt3FybkjQjkIJkN7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -55,31 +70,32 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/misc" />
+    <property name="javascript.nodejs.core.library.configured.version" value="13.13.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="org.sonarlint.intellij.config.project.SonarLintProjectConfigurable" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\editor" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\images" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\fonts\Comfortaa" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\sponsors" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\donations" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\temp" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\editor" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\images" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -149,6 +165,26 @@
       <workItem from="1586692325038" duration="324000" />
       <workItem from="1586790517233" duration="221000" />
       <workItem from="1586863728718" duration="35000" />
+      <workItem from="1587354447335" duration="257000" />
+      <workItem from="1587433391071" duration="2564000" />
+      <workItem from="1587438522992" duration="1134000" />
+      <workItem from="1587439828943" duration="281000" />
+      <workItem from="1587440155941" duration="270000" />
+      <workItem from="1587441904985" duration="39000" />
+      <workItem from="1587489570279" duration="117000" />
+      <workItem from="1587489709708" duration="597000" />
+      <workItem from="1587508103377" duration="3000" />
+      <workItem from="1587521766608" duration="239000" />
+      <workItem from="1587650487697" duration="365000" />
+      <workItem from="1587672423003" duration="77000" />
+      <workItem from="1590530523648" duration="339000" />
+      <workItem from="1591363873859" duration="4534000" />
+      <workItem from="1591390631543" duration="126000" />
+      <workItem from="1591390794432" duration="5055000" />
+      <workItem from="1591446999296" duration="6020000" />
+      <workItem from="1591453094361" duration="1100000" />
+      <workItem from="1591489305724" duration="1484000" />
+      <workItem from="1591566262881" duration="21566000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -290,7 +326,42 @@
       <option name="project" value="LOCAL" />
       <updated>1586692558759</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Actions Added v0.2">
+      <created>1587439763180</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587439763180</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Editor Added v0.3">
+      <created>1591395826023</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1591395826023</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Editor Added v0.3">
+      <created>1591453170087</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1591453170087</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Editor Added v0.3">
+      <created>1591454008327</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1591454008327</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Editor Added &#10;URL Constants Added&#10;v0.3">
+      <created>1591490388888</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1591490388888</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +384,9 @@
     <MESSAGE value="V1" />
     <MESSAGE value="UI Fresh v0.1" />
     <MESSAGE value="Actions Added v0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actions Added v0.2" />
+    <MESSAGE value="Editor Added v0.3" />
+    <MESSAGE value="Editor Added &#10;URL Constants Added&#10;v0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editor Added &#10;URL Constants Added&#10;v0.3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585204454014">
@@ -328,10 +401,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586183764652" />
-    <state x="103" y="26" key="CommitChangelistDialog2" timestamp="1586692557784">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="103" y="50" width="840" height="879" key="CommitChangelistDialog2" timestamp="1591453129291">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="103" y="26" key="CommitChangelistDialog2/0.0.1920.1050@0.0.1920.1050" timestamp="1586692557784" />
+    <state x="103" y="50" width="840" height="879" key="CommitChangelistDialog2/0.24.1920.1056@0.24.1920.1056" timestamp="1591453129291" />
     <state x="1219" y="269" key="FileChooserDialogImpl" timestamp="1586790586912">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -340,41 +414,60 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1586790740833">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1591582393382">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1586790740833">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393382" />
+    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1591582393381">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1586790740833">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1876" height="277" key="GridCell.Tab.0.center/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393381" />
+    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1591582393381">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
-    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1586790740833">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1876" height="277" key="GridCell.Tab.0.left/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393381" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1591582393381">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
+    <state width="1876" height="277" key="GridCell.Tab.0.right/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393381" />
     <state x="540" y="259" key="IDE.errors.dialog" timestamp="1586516834479">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="540" y="259" key="IDE.errors.dialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586516834479" />
-    <state x="727" y="212" key="SettingsEditor" timestamp="1586790594918">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="689" y="192" width="531" height="718" key="RollbackChangesDialog" timestamp="1587439952845">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="689" y="192" width="531" height="718" key="RollbackChangesDialog/0.24.1920.1056@0.24.1920.1056" timestamp="1587439952845" />
+    <state x="532" y="179" width="1185" height="730" key="SettingsEditor" timestamp="1587490305478">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="727" y="212" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586790594918" />
-    <state x="72" y="261" key="Vcs.Push.Dialog.v2" timestamp="1586692551695">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="532" y="179" width="1185" height="730" key="SettingsEditor/0.24.1920.1056@0.24.1920.1056" timestamp="1587490305478" />
+    <state x="120" y="230" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1591591236961">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="72" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1586692551695" />
+    <state x="120" y="230" width="800" height="526" key="Vcs.Push.Dialog.v2/0.24.1920.1056@0.24.1920.1056" timestamp="1591591236961" />
+    <state x="707" y="399" width="496" height="304" key="cloudConfig.PluginsDialog" timestamp="1587439792037">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="707" y="399" width="496" height="304" key="cloudConfig.PluginsDialog/0.24.1920.1056@0.24.1920.1056" timestamp="1587439792037" />
+    <state x="836" y="399" width="238" height="304" key="cloudConfig.SelfSettingsDialog" timestamp="1587439963758">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="836" y="399" width="238" height="304" key="cloudConfig.SelfSettingsDialog/0.24.1920.1056@0.24.1920.1056" timestamp="1587439963758" />
     <state x="767" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585667445301">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="767" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585667445301" />
-    <state x="136" y="247" key="run.anything.popup" timestamp="1586616570809">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="136" y="272" key="run.anything.popup" timestamp="1591392765476">
+      <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="136" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586616570809" />
+    <state x="136" y="272" key="run.anything.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1591392765476" />
   </component>
 </project>

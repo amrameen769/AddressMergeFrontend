@@ -61,7 +61,7 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        if(props.user){
+        if (props.user) {
             this.state = {
                 username: props.user.username,
                 password: "",
@@ -108,7 +108,9 @@ class Login extends Component {
 
     render() {
         if (this.props.isAuthenticated) {
+            // return <Redirect to={"/editor"}/>
             return <Redirect to={"/address-book"}/>
+
         }
         const {classes} = this.props;
         const {username} = this.state;
