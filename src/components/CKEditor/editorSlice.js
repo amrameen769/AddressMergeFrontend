@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {createMessage, getErrors, getNotifications, returnErrors} from "../messages/messagesSlice";
 import {tokenConfig} from "../client/authSlice";
+import {apiDataUrl} from "../misc/utility";
 
 const initialState = {
     documents: "",
@@ -27,7 +28,7 @@ export const slice = createSlice({
 export const {saveContent, getDocuments, editContent} = slice.actions;
 
 export const createContent = document => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/core/documents/', document, tokenConfig(getState))
+    axios.post(apiDataUrl + '/documents/', document, tokenConfig(getState))
         .then(result => {
             dispatch(saveContent(result.data));
             dispatch(getNotifications(createMessage("Content Saved", "success")));
@@ -40,7 +41,7 @@ export const createContent = document => (dispatch, getState) => {
 
 
 export const fetchDocuments = () => (dispatch, getState) => {
-    axios.get('http://127.0.0.1:8000/api/core/documents/', tokenConfig(getState))
+    axios.get(apiDataUrl + '/documents/', tokenConfig(getState))
         .then(result => {
             dispatch(getDocuments(result.data));
             dispatch(getNotifications(createMessage("Documents Loaded", "success")));

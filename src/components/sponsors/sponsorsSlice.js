@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from 'axios';
 import {createMessage, getErrors, getNotifications, returnErrors} from "../messages/messagesSlice";
 import {tokenConfig} from "../client/authSlice";
+import {apiDataUrl} from "../misc/utility";
 
 const initialState = {
     sponsors: [],
@@ -52,7 +53,7 @@ export const slice = createSlice({
 export const {getSponsors, addSponsor, flushSponsors, getSponsorGroups, addSponsorGroup, deleteSponsor, editSponsor, updateSponsor, flushEditSponsor} = slice.actions;
 
 export const fetchSponsors = () => (dispatch) => {
-    axios.get('http://127.0.0.1:8000/api/core/sponsors/')
+    axios.get(apiDataUrl + '/sponsors/')
         .then(result => {
             dispatch(getNotifications(createMessage("Sponsors Loaded", "info")));
             dispatch(fetchSponsorGroups());
@@ -66,7 +67,7 @@ export const fetchSponsors = () => (dispatch) => {
 
 //Fetch Sponsor Groups
 export const fetchSponsorGroups = () => (dispatch, getState) => {
-    axios.get('http://127.0.0.1:8000/api/core/sponsorGroups', tokenConfig(getState))
+    axios.get(apiDataUrl + '/sponsorGroups', tokenConfig(getState))
         .then(result => {
             dispatch(getSponsorGroups(result.data));
         })
@@ -78,7 +79,7 @@ export const fetchSponsorGroups = () => (dispatch, getState) => {
 
 // Create Sponsor
 export const createSponsor = (sponsor) => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/core/sponsors/', sponsor, tokenConfig(getState))
+    axios.post(apiDataUrl + '/sponsors/', sponsor, tokenConfig(getState))
         .then(result => {
             dispatch(addSponsor(result.data));
             dispatch(getNotifications(createMessage("Sponsor Added", "success")));
@@ -91,7 +92,7 @@ export const createSponsor = (sponsor) => (dispatch, getState) => {
 
 // Create Sponsor Group
 export const createSponsorGroup = (sponsorGroup) => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/core/sponsorGroups/', sponsorGroup, tokenConfig(getState))
+    axios.post(apiDataUrl + '/sponsorGroups/', sponsorGroup, tokenConfig(getState))
         .then(result => {
             dispatch(addSponsorGroup(result.data));
             dispatch(getNotifications(createMessage("Sponsor Group Added", "success")));
@@ -111,7 +112,7 @@ export const editThisSponsor = (rowData) => (dispatch) => {
 
 //Update Sponsor
 export const updateThisSponsor = (sponsor) => (dispatch, getState) => {
-    axios.patch(`http://127.0.0.1:8000/api/core/sponsors/${sponsor.id}/`, sponsor, tokenConfig(getState))
+    axios.patch(apiDataUrl + `/sponsors/${sponsor.id}/`, sponsor, tokenConfig(getState))
         .then(result => {
             // dispatch(fetchSponsors());
             dispatch(updateSponsor(result.data));
@@ -126,7 +127,7 @@ export const updateThisSponsor = (sponsor) => (dispatch, getState) => {
 //Delete Sponsor
 export const removeSponsor = id => (dispatch, getState) => {
     axios
-        .delete(`http://127.0.0.1:8000/api/core/sponsors/${id}/`, tokenConfig(getState))
+        .delete(apiDataUrl + `/sponsors/${id}/`, tokenConfig(getState))
         .then(result => {
             dispatch(deleteSponsor(id));
             dispatch(getNotifications(createMessage("Sponsor Deleted", "success")));

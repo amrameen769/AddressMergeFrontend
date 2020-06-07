@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from 'axios';
 import {tokenConfig} from "../client/authSlice";
 import {createMessage, getErrors, getNotifications, returnErrors} from "../messages/messagesSlice";
+import {apiDataUrl} from "../misc/utility";
 
 const initialState = {
     donations: [],
@@ -42,7 +43,7 @@ export const {getDonations, addDonation, deleteDonation, updateDonation, editDon
 
 // Add Donation
 export const createDonation = (donation) => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/core/donations/', donation, tokenConfig(getState))
+    axios.post(apiDataUrl + '/donations/', donation, tokenConfig(getState))
         .then(result => {
             dispatch(addDonation(result.data));
             dispatch(getNotifications(createMessage("Donation Added", "success")));
@@ -55,7 +56,7 @@ export const createDonation = (donation) => (dispatch, getState) => {
 
 // Fetch Donations
 export const fetchDonations = () => (dispatch, getState) => {
-    axios.get('http://127.0.0.1:8000/api/core/donations', tokenConfig(getState))
+    axios.get(apiDataUrl + '/donations', tokenConfig(getState))
         .then(result => {
             dispatch(getDonations(result.data));
             dispatch(getNotifications(createMessage("Donations loaded", "info")));
@@ -68,7 +69,7 @@ export const fetchDonations = () => (dispatch, getState) => {
 
 // Delete Donation
 export const removeDonation = (id) => (dispatch, getState) => {
-    axios.delete(`http://127.0.0.1:8000/api/core/donations/${id}`, tokenConfig(getState))
+    axios.delete(apiDataUrl + `/donations/${id}`, tokenConfig(getState))
         .then(result => {
             dispatch(deleteDonation(id));
             dispatch(getNotifications(createMessage("Donation deleted", "success")));
@@ -88,7 +89,7 @@ export const editThisDonation = (rowData) => (dispatch) => {
 
 // Update Donation
 export const updateThisDonation = (donation) => (dispatch, getState) => {
-    axios.patch(`http://127.0.0.1:8000/api/core/donations/${donation.id}/`, donation, tokenConfig(getState))
+    axios.patch(apiDataUrl + `/donations/${donation.id}/`, donation, tokenConfig(getState))
         .then(result => {
             dispatch(updateDonation(result.data));
             dispatch(getNotifications(createMessage("Donation Updated", "success")));

@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 import {createMessage, returnErrors, getErrors, getNotifications} from "../messages/messagesSlice";
 import {tokenConfig} from "../client/authSlice";
+import {apiDataUrl} from "../misc/utility";
 
 const initialState = {
     candidates: [],
@@ -49,7 +50,7 @@ export const {getCandidates, addCandidate, editCandidate, updateCandidate, delet
 
 // Get Candidates
 export const fetchCandidates = () => (dispatch, getState) => {
-    axios.get('http://127.0.0.1:8000/api/core/candidates', tokenConfig(getState))
+    axios.get(apiDataUrl + '/candidates', tokenConfig(getState))
         .then(result => {
             dispatch(getCandidates(result.data));
             dispatch(fetchCandidateCategory());
@@ -63,7 +64,7 @@ export const fetchCandidates = () => (dispatch, getState) => {
 
 // Get Candidates Category
 export const fetchCandidateCategory = () => (dispatch, getState) => {
-    axios.get('http://127.0.0.1:8000/api/core/candidateCategory', tokenConfig(getState))
+    axios.get(apiDataUrl + '/candidateCategory', tokenConfig(getState))
         .then(result => {
             dispatch(getCandidateCategory(result.data));
         })
@@ -75,7 +76,7 @@ export const fetchCandidateCategory = () => (dispatch, getState) => {
 
 //Add Candidate Category
 export const createCandidateCategory = (category) => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/core/candidateCategory/', category, tokenConfig(getState))
+    axios.post(apiDataUrl + '/candidateCategory/', category, tokenConfig(getState))
         .then(result => {
             dispatch(addCandidateCategory(result.data));
             dispatch(getNotifications(createMessage("Category Added", "success")))
@@ -88,7 +89,7 @@ export const createCandidateCategory = (category) => (dispatch, getState) => {
 
 //Add Candidate
 export const createCandidate = (candidate) => (dispatch, getState) => {
-    axios.post('http://127.0.0.1:8000/api/core/candidates/', candidate, tokenConfig(getState))
+    axios.post(apiDataUrl + '/candidates/', candidate, tokenConfig(getState))
         .then(result => {
             dispatch(addCandidate(result.data));
             dispatch(getNotifications(createMessage("Candidate Added", "success")))
@@ -122,7 +123,7 @@ export const editThisCandidate = (rowData) => (dispatch) => {
 
 // Update Candidate
 export const updateThisCandidate = (candidate) => (dispatch, getState) => {
-    axios.patch(`http://127.0.0.1:8000/api/core/candidates/${candidate.id}/`, candidate, tokenConfig(getState))
+    axios.patch(apiDataUrl + `/candidates/${candidate.id}/`, candidate, tokenConfig(getState))
         .then(result => {
             dispatch(updateCandidate(result.data));
             dispatch(flushEditCandidate());
@@ -136,7 +137,7 @@ export const updateThisCandidate = (candidate) => (dispatch, getState) => {
 
 // Delete Candidate
 export const removeCandidate = (id) => (dispatch, getState) => {
-    axios.delete(`http://127.0.0.1:8000/api/core/candidates/${id}`, tokenConfig(getState))
+    axios.delete(apiDataUrl + `/candidates/${id}`, tokenConfig(getState))
         .then(result => {
             dispatch(deleteCandidate(id));
             dispatch(getNotifications(createMessage("Candidate deleted", "success")))
