@@ -3,6 +3,9 @@ import axios from 'axios';
 import {returnErrors, getErrors, createMessage, getNotifications} from "../messages/messagesSlice";
 import {flushSponsors} from "../sponsors/sponsorsSlice";
 import {apiAuthUrl} from "../misc/utility";
+import {flushDocuments} from "../CKEditor/editorSlice";
+import {flushCandidates} from "../candidates/candidateSlice";
+import {flushDonations} from "../donations/donationsSlice";
 
 const initialState = {
     token: localStorage.getItem("token"),
@@ -105,6 +108,9 @@ export const logoutUser = () => (dispatch, getState) => {
         .then(result => {
             dispatch(authError());
             dispatch(flushSponsors());
+            dispatch(flushDocuments());
+            dispatch(flushCandidates());
+            dispatch(flushDonations());
             dispatch(getNotifications(createMessage("Logged out Successfully", "success")))
         })
         .catch(error => {
