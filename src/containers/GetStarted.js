@@ -49,15 +49,16 @@ const GetStarted = () => {
     );
     return (
         // <div style={{backgroundImage: `url(${bg_home})`}}>
-        <div>
-            <Container>
-                <h1>Get Started</h1>
-                {para}
-                {para}
-                {para}
-                {para}
-            </Container>
-        </div>
+            <div>
+                <Container>
+                    <h1>Get Started</h1>
+                    {para}
+                    {para}
+                    {para}
+                    {para}
+                </Container>
+            </div>
+        // </div>
     );
 };
 

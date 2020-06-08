@@ -20,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17fb15a-52ad-49ad-8dac-a4daca0cab74" name="Default Changelist" comment="Editor Added &#10;URL Constants Added&#10;v0.3">
-      <change afterPath="$PROJECT_DIR$/src/components/CKEditor/ListDocuments.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CKEditor/SaveDialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/client/Dashboard/Reports.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/client/Dashboard/SimpleCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CKEditor/CKEditorCustom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CKEditor/editorSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client/DashboardMerger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/DashboardMerger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/client/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/client/authSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client/authSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/misc/AddCategory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/misc/AddCategory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/GetStarted.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/GetStarted.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,30 +71,30 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="13.13.0" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="org.sonarlint.intellij.config.project.SonarLintProjectConfigurable" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\sponsors" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\donations" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
-      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\temp" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\editor" />
       <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\client\Dashboard" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\sponsors" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\misc" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\components\donations" />
+      <recent name="D:\AddressMergeMain\AddressMerge\frontend\src\containers" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -185,6 +184,8 @@
       <workItem from="1591453094361" duration="1100000" />
       <workItem from="1591489305724" duration="1484000" />
       <workItem from="1591566262881" duration="21566000" />
+      <workItem from="1591589978455" duration="2481000" />
+      <workItem from="1591629558700" duration="410000" />
     </task>
     <task id="LOCAL-00001" summary="V1">
       <created>1585077796064</created>
@@ -414,25 +415,25 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="348" y="422" key="Github.ShareDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585077567567" />
-    <state width="1876" height="277" key="GridCell.Tab.0.bottom" timestamp="1591582393382">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1879" height="274" key="GridCell.Tab.0.bottom" timestamp="1591593422130">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
+    <state width="1879" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1591593422130" />
     <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393382" />
-    <state width="1876" height="277" key="GridCell.Tab.0.center" timestamp="1591582393381">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1879" height="274" key="GridCell.Tab.0.center" timestamp="1591593422130">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
+    <state width="1879" height="274" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1591593422130" />
     <state width="1876" height="277" key="GridCell.Tab.0.center/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393381" />
-    <state width="1876" height="277" key="GridCell.Tab.0.left" timestamp="1591582393381">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1879" height="274" key="GridCell.Tab.0.left" timestamp="1591593422130">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
+    <state width="1879" height="274" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1591593422130" />
     <state width="1876" height="277" key="GridCell.Tab.0.left/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393381" />
-    <state width="1876" height="277" key="GridCell.Tab.0.right" timestamp="1591582393381">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state width="1879" height="274" key="GridCell.Tab.0.right" timestamp="1591593422130">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586790740833" />
+    <state width="1879" height="274" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1591593422130" />
     <state width="1876" height="277" key="GridCell.Tab.0.right/0.24.1920.1056@0.24.1920.1056" timestamp="1591582393381" />
     <state x="540" y="259" key="IDE.errors.dialog" timestamp="1586516834479">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -442,10 +443,10 @@
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
     <state x="689" y="192" width="531" height="718" key="RollbackChangesDialog/0.24.1920.1056@0.24.1920.1056" timestamp="1587439952845" />
-    <state x="532" y="179" width="1185" height="730" key="SettingsEditor" timestamp="1587490305478">
-      <screen x="0" y="24" width="1920" height="1056" />
+    <state x="727" y="212" width="1185" height="730" key="SettingsEditor" timestamp="1591557758636">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="727" y="212" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586790594918" />
+    <state x="727" y="212" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1591557758636" />
     <state x="532" y="179" width="1185" height="730" key="SettingsEditor/0.24.1920.1056@0.24.1920.1056" timestamp="1587490305478" />
     <state x="120" y="230" width="800" height="526" key="Vcs.Push.Dialog.v2" timestamp="1591591236961">
       <screen x="0" y="24" width="1920" height="1056" />
