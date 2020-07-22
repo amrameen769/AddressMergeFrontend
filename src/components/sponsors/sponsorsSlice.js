@@ -52,8 +52,8 @@ export const slice = createSlice({
 
 export const {getSponsors, addSponsor, flushSponsors, getSponsorGroups, addSponsorGroup, deleteSponsor, editSponsor, updateSponsor, flushEditSponsor} = slice.actions;
 
-export const fetchSponsors = () => (dispatch) => {
-    axios.get(apiDataUrl + '/sponsors/')
+export const fetchSponsors = () => (dispatch, getState) => {
+    axios.get(apiDataUrl + '/sponsors/', tokenConfig(getState))
         .then(result => {
             dispatch(getNotifications(createMessage("Sponsors Loaded", "info")));
             dispatch(fetchSponsorGroups());
